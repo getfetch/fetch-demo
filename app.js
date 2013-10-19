@@ -45,6 +45,10 @@ app.get('/', function (request, response) {
   response.render('index', { /* template locals context */ });
 });
 
+app.get('/browse', function(request, response) {
+  response.render('browse');
+});
+
 app.get('/login', function (request, response) {
   if (request.session.loggedIn) {
     response.redirect('/');

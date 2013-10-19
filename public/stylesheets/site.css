@@ -1,5 +1,15 @@
 body { }
 
+.mmenu h1 {
+  color: rgba( 255, 255, 255, 0.6 );
+  font-size: 36px;
+}
+
+/* Hide header on landing page */
+body.index #main-header {
+  display: none;
+}
+
 .promoted {
 }
 
@@ -12,3 +22,5 @@ body { }
 .buttons {
   margin-top: 1em;
 }
+
+

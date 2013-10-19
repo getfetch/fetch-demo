@@ -2,21 +2,61 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}My Site{% endblock %}</title>
+  <title>{% block title %}Fetch{% endblock %}</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {% block head %}
   <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/bower/jquery-mmenu/mmenu.css" />
   <link rel="stylesheet" href="/stylesheets/site.css">
 
   <script src="/bower/jquery/jquery.min.js"></script>
   <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower/jquery-mmenu/jquery.mmenu.min.js"></script>
+  <script src="/javascript/menu.js"></script>
   {% endblock %}
+  <script type="text/javascript">
+    (function() {
+      var config = {
+        kitId: 'nnh2kvl',
+        scriptTimeout: 3000
+      };
+      var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+    })();
+  </script>
 </head>
-<body>
+<body class="{% block class %}{% endblock %}">
+
+  
+  <nav id="main-menu">
+    <h1>Fetch!</h1>
+    <ul>
+      <li><a href="#">Browse</a></li>
+      <li><a href="#">My Favorites</a></li>
+      <li><a href="#">My Profile</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
+    <header id="main-header">
+      {% block menuleft %}
+        <a id="main-menu-link" href="#">Menu</a>
+      {% endblock %}
+      <h1>{% block title %}Fetch{% endblock %}</h1>
+      {% block menuright %}
+      {% endblock %}
+    </header>
+
     {% block content %}{% endblock %}
   </div>
+
+  <script>
+    $(function() {
+      $('#main-menu').mmenu();
+    });
+  </script>
 </body>
 </html>

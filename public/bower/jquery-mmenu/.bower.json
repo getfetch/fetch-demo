@@ -1,0 +1,24 @@
+{
+  "name": "jquery-mmenu",
+  "version": "2.2.3",
+  "main": "jquery.mmenu.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/jackncoke/jquery-mmenu",
+  "_release": "2.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.2.3",
+    "commit": "970412b94b9d92bd3849677155103160ae0afc7d"
+  },
+  "_source": "git://github.com/jackncoke/jquery-mmenu.git",
+  "_target": "~2.2.3",
+  "_originalSource": "jquery-mmenu",
+  "_direct": true
+}
