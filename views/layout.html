@@ -8,10 +8,13 @@
 
   {% block head %}
   <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/bower/jquery-mmenu/mmenu.css" />
   <link rel="stylesheet" href="/stylesheets/site.css">
 
   <script src="/bower/jquery/jquery.min.js"></script>
   <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower/jquery-mmenu/jquery.mmenu.min.js"></script>
+  <script src="/javascript/menu.js"></script>
   {% endblock %}
   <script type="text/javascript">
     (function() {
@@ -23,9 +26,37 @@
     })();
   </script>
 </head>
-<body>
+<body class="{% block class %}{% endblock %}">
+
+  
+  <nav id="main-menu">
+    <h1>Fetch!</h1>
+    <ul>
+      <li><a href="#">Browse</a></li>
+      <li><a href="#">My Favorites</a></li>
+      <li><a href="#">My Profile</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
+    <header id="main-header">
+      {% block menuleft %}
+        <a id="main-menu-link" href="#">Menu</a>
+      {% endblock %}
+      <h1>{% block title %}Fetch{% endblock %}</h1>
+      {% block menuright %}
+      {% endblock %}
+    </header>
+
     {% block content %}{% endblock %}
   </div>
+
+  <script>
+    $(function() {
+      $('#main-menu').mmenu();
+    });
+  </script>
 </body>
 </html>
