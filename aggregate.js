@@ -12,6 +12,7 @@ function pull(zip, callback) {
 	var stringToHash = secret + key + "&" + format + "&" + location;
 	var hash = md5.update(stringToHash);
 	var sig = "sig=" + hash.digest('hex');
+	var returnData = "";
 
 	var url = baseUrl + call + "?" + key + "&" + format + "&" + location + "&" + sig;
 	
@@ -20,8 +21,12 @@ function pull(zip, callback) {
 	  // console.log('HEADERS: ' + JSON.stringify(res.headers));
 	  res.setEncoding('utf8');
 	  res.on('data', function (chunk) {
-		callback(chunk);
-	  });	  
+		returnData += chunk;
+	  });
+	  res.on('end', function(){
+		console.log('close');
+		callback(returnData);
+	  });
 	}).on('error', function(e) {
 	  // console.log("got error: " + e.message);
 	});
