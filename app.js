@@ -21,8 +21,8 @@ swig.setDefaults({ cache: false });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function (req, res) {
-  res.render('index', { /* template locals context */ });
+app.get('/', function (request, response) {
+  response.render('index', { /* template locals context */ });
 });
 
 var port = process.env.PORT || 3000;
