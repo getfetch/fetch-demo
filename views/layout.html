@@ -5,7 +5,11 @@
   <title>{% block title %}My Site{% endblock %}</title>
 
   {% block head %}
-  <link rel="stylesheet" href="stylesheets/site.css">
+  <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/stylesheets/site.css">
+
+  <script src="/bower/jquery/jquery.min.js"></script>
+  <script src="bower/bootstrap/dist/js/bootstrap.min.js"></script>
   {% endblock %}
 </head>
 <body>
