@@ -14,6 +14,17 @@ app.set('view cache', process.env.CACHE || false);
 swig.setDefaults({ cache: false });
 
 // Routes
+//
+// Redirect www to non-www domain
+app.get('/*', function(request, response, next) {
+  if(request.headers.host.match(/^www/)) {
+    response.redirect(301, 'http://' + request.headers.host.replace(/^www\./, '') + request.url);
+  } else {
+    next();
+  }
+});
+
+// Landing page
 app.get('/', function (request, response) {
   response.render('index', { /* template locals context */ });
 });
