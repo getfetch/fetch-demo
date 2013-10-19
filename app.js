@@ -1,6 +1,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var util = require('util');
 var querystring = require('querystring');
 var swig = require('swig');
 var aggregate = require('./aggregate');
@@ -8,6 +9,7 @@ var aggregate = require('./aggregate');
 // Constants
 var admin_email = 'getfetch@gmail.com';
 var admin_password = process.env.ADMIN_PASSWORD || '';
+var admin_zipcode = process.env.ADMIN_ZIPCODE || 15220;
 
 // App config
 var app = express();
@@ -76,6 +78,13 @@ app.get('/logout', function (request, response) {
 
 app.get('/admin', requireLogin, function (request, response) {
   response.render('admin');
+});
+
+app.get('/aggregate', requireLogin, function (request, response) {
+  var dogs = aggregate.pull(admin_zipcode, function(content) {
+    response.setHeader('Content-Type', 'application/json');
+    response.send(content);
+  });
 });
 
 // Run server
