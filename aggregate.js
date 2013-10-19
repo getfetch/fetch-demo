@@ -13,14 +13,11 @@ function pull(zipcode, callback) {
   
   var returnData = '';
   var get = http.get(url, function(res) {
-    // console.log('STATUS: ' + res.statusCode);
-    // console.log('HEADERS: ' + JSON.stringify(res.headers));
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
       returnData += chunk;
     });
     res.on('end', function() {
-      console.log('close');
       callback(returnData);
     });
   }).on('error', function(e) {
