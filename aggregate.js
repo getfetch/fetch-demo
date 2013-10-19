@@ -21,7 +21,7 @@ function pull(zipcode, callback) {
       callback(returnData);
     });
   }).on('error', function(e) {
-    // console.log('got error: ' + e.message);
+    console.log('got error: ' + e.message);
   });
 }
 
