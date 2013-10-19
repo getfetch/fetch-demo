@@ -3,6 +3,7 @@ var app = express();
 var http = require('http');
 var path = require('path');
 var swig = require('swig');
+var aggregate = require('./aggregate');
 
 // App config
 app.engine('html', swig.renderFile);
