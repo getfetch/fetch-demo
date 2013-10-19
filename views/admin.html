@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fetch Admin{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Fetch Admin</h1>
+    <p>
+      <form action="/aggregate" method="POST">
+        <button class="btn" type="submit">Pull in Latest Dogs</button>
+      </form>
+    </p>
+  </div>
+{% endblock %}
