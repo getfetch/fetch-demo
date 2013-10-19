@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fetch Admin{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Fetch Admin</h1>
+    <p>
+      <a class="btn btn-default btn-block btn-lg" href="/aggregate">Get Latest Dogs</a>
+    </p>
+  </div>
+{% endblock %}

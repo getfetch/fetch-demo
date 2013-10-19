@@ -2,6 +2,8 @@
 
 {% block title %}Fetch{% endblock %}
 
+{% block class %}index{% endblock %}
+
 {% block head %}
   {% parent %}
 {% endblock %}
@@ -22,8 +24,8 @@
   </div>
 
   <div class="buttons">
-    <a href="#" class="btn btn-default">Login</a>
-    <a href="#" class="btn btn-default">Start Browse</a>
+    <a href="/login" class="btn btn-default">Login</a>
+    <a href="/browse" class="btn btn-default">Start Browse</a>
   </div>
 
 {% endblock %}
