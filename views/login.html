@@ -11,6 +11,7 @@
     <h1>Login to Fetch</h1>
     <p>
       <form action="/login" method="POST">
+        <input type="hidden" name="next" value="{{ next }}" />
         {% if error %}
           <div class="alert alert-dismissable alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

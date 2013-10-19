@@ -1,6 +1,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var querystring = require('querystring');
 var swig = require('swig');
 var aggregate = require('./aggregate');
 
@@ -25,7 +26,8 @@ function requireLogin(request, response, next) {
  if (request.session.loggedIn) {
     next();
   } else {
-    response.redirect('/login');
+    response.redirect('/login' +
+      (request.url ? '?' + querystring.stringify({next: request.url}) : ''));
   }
 }
 
@@ -47,7 +49,7 @@ app.get('/login', function (request, response) {
   if (request.session.loggedIn) {
     response.redirect('/');
   } else {
-    response.render('login');
+    response.render('login', {next: request.query.next});
   }
 })
 .post('/login', function (request, response) {
@@ -59,7 +61,7 @@ app.get('/login', function (request, response) {
   } else {
     // TODO: Make this more secure
     request.session.loggedIn = true;
-    response.redirect('/');
+    response.redirect(request.body.next || '/');
   }
 });
 
