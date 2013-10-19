@@ -29,6 +29,11 @@ app.get('/', function (request, response) {
   response.render('index', { /* template locals context */ });
 });
 
+// Browse page
+app.get('/browse', function(request, response) {
+  response.render('browse');
+});
+
 // Run server
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
