@@ -1,11 +1,29 @@
 {% extends 'layout.html' %}
 
-{% block title %}My Page{% endblock %}
+{% block title %}Fetch{% endblock %}
 
 {% block head %}
   {% parent %}
 {% endblock %}
 
 {% block content %}
-<p>This is just an awesome page.</p>
+
+  <h1 class="logo">
+    Fetch!!!
+  </h1>
+
+  <p>
+    Here is some introductory text.
+  </p>
+
+  <div class="promoted">
+    <img src="/images/promoted1.png" />
+    <img src="/images/promoted2.jpg" />
+  </div>
+
+  <div class="buttons">
+    <a href="#" class="btn btn-default">Login</a>
+    <a href="#" class="btn btn-default">Start Browse</a>
+  </div>
+
 {% endblock %}

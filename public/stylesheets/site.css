@@ -1,1 +1,14 @@
-body { font-size: 2em; }
+body { }
+
+.promoted {
+}
+
+.promoted img {
+  max-width: 500px;
+  width: 49%;
+  
+}
+
+.buttons {
+  margin-top: 1em;
+}
