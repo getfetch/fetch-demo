@@ -1,25 +1,45 @@
 {% extends 'layout.html' %}
 
-{% block title %}Browse - Fetch{% endblock %}
+{% block title %}Browse{% endblock %}
+
+{% block class %}browse{% endblock %}
 
 {% block head %}
   {% parent %}
 {% endblock %}
 
+{% block menuright %}
+  <a id="filter-link" class="btn btn-default" href="#">Filter</a>
+{% endblock %}
+  
 {% block content %}
 
-  <div class="images-container">
-    <div class="pager">
-      1/2
-    </div>
-    <div class="images">
+<div class="pet-container">
+  <div class="pet-summary">
+    <div class="pet-images">
       <img src="/images/promoted1.png" />
-      <img src="/images/promoted2.png" />
+      <!-- <img src="/images/promoted2.jpg" /> -->
     </div>
-    <div class="actions">
-      <a href="#" class="btn btn-default">Like</a>
-      <a href="#" class="btn btn-default">
+    <div class="pet-info">
+      <div class="name">
+        Lucy
+      </div>
+      <div class="actions">
+        <a href="#">Favorite</a>
+        <a href="#">Share</a>
+        <a href="#">Info</a>
+      </div>
     </div>
   </div>
+</div>
+
+{% endblock %}
+
+{% block panel %}
+
+  <nav id="filter-settings">
+    <h1>Find your bestie</h1>
+    
+  </nav>
 
 {% endblock %}

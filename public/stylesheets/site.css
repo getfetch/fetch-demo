@@ -1,5 +1,9 @@
 body { }
 
+.mmenu {
+  padding: .5em;
+}
+
 .mmenu h1 {
   color: rgba( 255, 255, 255, 0.6 );
   font-size: 36px;
@@ -41,4 +45,15 @@ body.index #main-header {
   margin-top: 1em;
 }
 
+/* Browse */
+.pet-container .pet-images img {
+  width: 100%;
+}
+
+.pet-container .pet-images {
+}
+
+#filter-settings {
+  margin-left: 65px;
+}
 
