@@ -1,11 +1,11 @@
 var express = require('express');
-var app = express();
 var http = require('http');
 var path = require('path');
 var swig = require('swig');
 var aggregate = require('./aggregate');
 
 // App config
+var app = express();
 app.engine('html', swig.renderFile);
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'html');
