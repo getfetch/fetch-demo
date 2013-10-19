@@ -9,7 +9,7 @@ app.engine('html', swig.renderFile);
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
-app.set('view cache', false);
+app.set('view cache', process.env.CACHE || false);
 swig.setDefaults({ cache: false });
 
 // Routes
