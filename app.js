@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var http = require('http');
+var path = require('path');
 
 var swig = require('swig')
 
@@ -16,6 +18,8 @@ app.set('view cache', false);
 swig.setDefaults({ cache: false });
 // NOTE: You should always cache templates in a production environment.
 // Don't leave both of these to `false` in production!
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
   res.render('index', { /* template locals context */ });
