@@ -3,7 +3,7 @@ var app = express();
 var http = require('http');
 var path = require('path');
 
-var swig = require('swig')
+var swig = require('swig');
 
 // This is where all the magic happens!
 app.engine('html', swig.renderFile);
