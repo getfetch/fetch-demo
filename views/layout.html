@@ -40,14 +40,20 @@
     </ul>
   </nav>
 
+  {% block panel %}{% endblock %}
+
   <div class="container">
     <header id="main-header">
-      {% block menuleft %}
-        <a id="main-menu-link" href="#">Menu</a>
-      {% endblock %}
-      <h1>{% block title %}Fetch{% endblock %}</h1>
-      {% block menuright %}
-      {% endblock %}
+      <div id="main-header-left-btn">
+        {% block menuleft %}
+          <a id="main-menu-link" class="btn btn-default" href="#">Menu</a>
+        {% endblock %}
+      </div>
+      <div id="main-header-right-btn">
+        {% block menuright %}
+        {% endblock %}
+      </div>
+      <div id="main-header-title">{% block title %}Fetch{% endblock %}</div>
     </header>
 
     {% block content %}{% endblock %}

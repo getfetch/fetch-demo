@@ -1,8 +1,30 @@
 body { }
 
+.mmenu {
+  padding: .5em;
+}
+
 .mmenu h1 {
   color: rgba( 255, 255, 255, 0.6 );
   font-size: 36px;
+}
+
+#main-header {
+  padding: .5em;
+}
+
+#main-header-left-btn {
+  float: left;
+}
+#main-header-right-btn {
+  float: right;
+}
+
+#main-header-title {
+  font-size: 2em;
+  color: red;
+  text-align: center;
+  
 }
 
 /* Hide header on landing page */
@@ -23,4 +45,15 @@ body.index #main-header {
   margin-top: 1em;
 }
 
+/* Browse */
+.pet-container .pet-images img {
+  width: 100%;
+}
+
+.pet-container .pet-images {
+}
+
+#filter-settings {
+  margin-left: 65px;
+}
 
