@@ -1,21 +1,17 @@
 var http = require('http');
-var crypto = require('crypto');
+var querystring = require('querystring');
+var md5 = require('crypto').createHash('md5');
 
-function pull(zip, callback) {
-  var baseUrl = 'http://api.petfinder.com/';
-  var secret = 'b0f53f55688e39e093bdd43fab8f61c5';
-  var call = 'pet.find';
-  var key = 'key=c05eebea71cf26cfa156b08689269176';
-  var format = 'format=json';
-  var location = 'location=' + zip;
-  var md5 = crypto.createHash('md5');
-  var stringToHash = secret + key + '&' + format + '&' + location;
-  var hash = md5.update(stringToHash);
-  var sig = 'sig=' + hash.digest('hex');
-  var returnData = '';
+// TODO: Generate new keys and put then in the config instead of version control
+var API_KEY = 'c05eebea71cf26cfa156b08689269176';
+var API_SECRET = 'b0f53f55688e39e093bdd43fab8f61c5';
 
-  var url = baseUrl + call + '?' + key + '&' + format + '&' + location + '&' + sig;
+function pull(zipcode, callback) {
+  var query = querystring.stringify({key: API_KEY, format: 'json', location: zipcode});
+  var signature = md5.update(API_SECRET + query).digest('hex');
+  var url = 'http://api.petfinder.com/pet.find?' + query + '&' + signature;
   
+  var returnData = '';
   var get = http.get(url, function(res) {
     // console.log('STATUS: ' + res.statusCode);
     // console.log('HEADERS: ' + JSON.stringify(res.headers));
