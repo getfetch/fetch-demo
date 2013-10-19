@@ -44,7 +44,11 @@ app.get('/', function (request, response) {
 });
 
 app.get('/login', function (request, response) {
-  response.render('login');
+  if (request.session.loggedIn) {
+    response.redirect('/');
+  } else {
+    response.render('login');
+  }
 })
 .post('/login', function (request, response) {
   if (request.body.email !== admin_email || request.body.password !== admin_password) {
