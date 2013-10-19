@@ -5,6 +5,24 @@ body { }
   font-size: 36px;
 }
 
+#main-header {
+  padding: .5em;
+}
+
+#main-header-left-btn {
+  float: left;
+}
+#main-header-right-btn {
+  float: right;
+}
+
+#main-header-title {
+  font-size: 2em;
+  color: red;
+  text-align: center;
+  
+}
+
 /* Hide header on landing page */
 body.index #main-header {
   display: none;
