@@ -55,7 +55,7 @@ var FavoriteBrowser = (function() {
 
     if(dogToDisplay) {
       setTimeout(function() {
-        displayDog(dogToDisplay);
+        Info.popInfo(dogToDisplay);
       }, 100);
     }
   }
@@ -67,99 +67,16 @@ var FavoriteBrowser = (function() {
     });
   });
 
-  // Shelters
-  //
-  var shelterNames = {
-    'PA834': 'Biggies Bullies',
-    'PA294': 'Animal Advocates'
-  };
+  $(function() {
 
-  function lookupShelter(id) {
-    return shelterNames[id] || id;
-  }
-
-  // Info page
-  //
-  var infoDoc;
-  var pageCache;
-
-  $.ajax('/info')
-    .done(function(data) {
-      infoDoc = createDocument(data);
-      console.log(infoDoc);
-    });
-
-  function cachePage() {
-    pageCache = {
-      title: document.title,
-      body: document.body,
-      positionY: window.pageYOffset,
-      positionX: window.pageXOffset
-    };
-  }
-
-  $(window).on('popstate', function() {
-    restoreCachedPage();
-  });
-
-  function restoreCachedPage() {
-    if(!pageCache) {
-      return;
-    }
-
-    document.title = pageCache.title;
-    document.documentElement.replaceChild(pageCache.body, document.body);
-
-    window.history.replaceState({}, '', '/favorites');
-
-    PageSetup();
-
-    window.scrollTo(pageCache.positionX, pageCache.positionY);
-  }
-
-  function createDocument(html) {
-    var doc = document.implementation.createHTMLDocument('');
-    doc.open('replace');
-    doc.write(html);
-    doc.close();
-    return doc;
-  }
-
-  function displayDog(dog) {
-    cachePage();
-    document.title = dog.name;
-    document.documentElement.replaceChild($(infoDoc.body).clone()[0], document.body);
-
-    window.history.pushState({}, '', '/favorites/' + dog.id);
-    console.log(infoDoc);
-
-    window.scrollTo(0, 0);
-
-    PageSetup();
-
-    $('#back-link').click(function() {
-      console.log('back');
-      restoreCachedPage();
+    $('.favorite-container').on('click', '.favorite-item', function() {
+      console.log('test');
+      Info.popInfo($(this).parents('.favorite').data('object'));
       return false;
     });
-
-    $('#main-header-title').text(dog.name);
-    $('.favorite-name').text(dog.name);
-    $('.favorite-age-sex').text(dog.age + " " + dog.sex);
-    $('.favorite-breed').text(dog.breeds[0]);
-    $('.favorite-description').append($(dog.description));
-    $('.favorite-image').append($('<img src="' + dog.photoUrls[0] + '" />'));
-
-    $('.breeder-name').text(lookupShelter(dog.organization.id));
-    $('.breeder-email').text(dog.organization.email);
-    $('.breeder-address').append($('<div>123 Avenue St.<br/>Pittsburgh, PA 15127</div>'));
-    $('.breeder-phone').text('412-555-9556');
-  }
+  });
 
   result = {
-    popInfo: function(dog) {
-      displayDog(dog);
-    }
   };
 
   return result;
