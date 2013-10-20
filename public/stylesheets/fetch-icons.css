@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fetch-icons';
-  src: url('../font/fetch-icons.eot?562402');
-  src: url('../font/fetch-icons.eot?562402#iefix') format('embedded-opentype'),
-       url('../font/fetch-icons.woff?562402') format('woff'),
-       url('../font/fetch-icons.ttf?562402') format('truetype'),
-       url('../font/fetch-icons.svg?562402#fetch-icons') format('svg');
+  src: url('../font/fetch-icons.eot?24849769');
+  src: url('../font/fetch-icons.eot?24849769#iefix') format('embedded-opentype'),
+       url('../font/fetch-icons.woff?24849769') format('woff'),
+       url('../font/fetch-icons.ttf?24849769') format('truetype'),
+       url('../font/fetch-icons.svg?24849769#fetch-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fetch-icons';
-    src: url('../font/fetch-icons.svg?562402#fetch-icons') format('svg');
+    src: url('../font/fetch-icons.svg?24849769#fetch-icons') format('svg');
   }
 }
 */
@@ -61,6 +61,7 @@
 .icon-plus:before { content: '\e809'; } /* '' */
 .icon-export:before { content: '\e804'; } /* '' */
 .icon-search:before { content: '\e806'; } /* '' */
+.icon-warning:before { content: '\e814'; } /* '' */
 .icon-location:before { content: '\e80c'; } /* '' */
 .icon-direction:before { content: '\e80b'; } /* '' */
 .icon-compass:before { content: '\e80a'; } /* '' */

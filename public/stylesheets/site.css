@@ -203,11 +203,29 @@ body.index #main-header {
 	margin: 0 0 20px;
 	height: 260px;
 }
+/*
 .urgent {
-	
+	background-image: url('../images/urgent.png');
+	background-position: 0 0;
+	background-repeat: no-repeat;
 }
-.registered {
-	
+.verified {
+	background-image: url('../images/verified.png');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+*/
+.urgent .pet-name {
+	background-image: url('../images/urgent.png');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	text-indent: 30px;
+}
+.verified .pet-name {
+	background-image: url('../images/verified.png');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	text-indent: 30px;
 }
 .pet-images::before, .pet-image::before {
     display: block;
