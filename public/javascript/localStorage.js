@@ -1,5 +1,39 @@
 // Origin: https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage
 
+// Gets an array from localStorage
+function localStorageGetArray(key) {
+  var data = window.localStorage.getItem(key);
+  return data ? data.split(',') : [];
+}
+
+// Stores an array to localStorage
+function localStorageSetArray(key, items) {
+  if (!Array.isArray(items)) {
+    throw new Error('localStorageSetArray: items must be an Array.');
+  }
+  data = items.join(',');
+  window.localStorage.setItem(key, data);
+}
+
+// Pushes an item to an array stored in localStorage
+function localStoragePush(key, item) {
+  // TODO: Escape the item string if it contains ','
+  var items = localStorageGetArray(key);
+  items.push(item);
+  localStorageSetArray(items);
+}
+
+// Pops an item to an array stored in localStorage
+function localStoragePop(key, item) {
+  var items = localStorageGetArray(key);
+  var index = items.indexOf(item);
+  if (index === -1) {
+    return;
+  }
+  items.pop(index);
+  localStorageSetArray(items);
+}
+
 if (!window.localStorage) {
   Object.defineProperty(window, "localStorage", new (function () {
     var aKeys = [], oStorage = {};
