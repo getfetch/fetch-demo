@@ -116,7 +116,10 @@ footer {
   font-size: 2em;
   color: red;
   text-align: center;
-  
+  margin: auto 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Hide header on landing page */
@@ -130,7 +133,11 @@ body.index #main-header {
 .promoted img {
   max-width: 500px;
   width: 49%;
-  
+  display: block;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 1em;
+  margin-left: .66666%;
 }
 
 .buttons {
@@ -159,4 +166,15 @@ body.index #main-header {
 }
 #filter-settings #distance {
   margin-top: .5em;
+}
+#filter-settings #current-location {
+  padding: 2px 2px;
+  font-size: 1.4em;
+  line-height: 1em;
+}
+
+/* Info */
+.breeder-map {
+  width: 300px;
+  margin: auto;
 }

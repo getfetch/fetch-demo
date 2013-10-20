@@ -54,8 +54,8 @@ app.get('/browse', function(request, response) {
   response.render('browse');
 });
 
-app.get('/info/:id', function(request, response) {
-  response.render('info', { id: request.params.id });
+app.get('/info', function(request, response) {
+  response.render('info');
 });
 
 app.get('/organization', function(request, response) {
