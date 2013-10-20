@@ -9,14 +9,15 @@
 {% block content %}
   <div class="container">
     <p>
+      {% if error %}
+        <div class="alert alert-dismissable alert-danger">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{ error }}
+        </div>
+      {% endif %}
+
       <form action="/login" method="POST">
         <input type="hidden" name="next" value="{{ next }}" />
-        {% if error %}
-          <div class="alert alert-dismissable alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            {{ error }}
-          </div>
-        {% endif %}
         <div class="form-group">
           <input type="text" name="email" class="form-control" value="{{ email }}" placeholder="Email" autofocus />
         </div>

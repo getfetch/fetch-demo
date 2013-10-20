@@ -1,12 +1,79 @@
-body { }
+/*
+Fetch color scheme
+	red: 		#d85339 - headers
+	grey: 		#52504c - text
+	tan:		#e7e6e2 - background
+	med tan:	#cccccc - borders
+	gold:		#fbd645 - verified
+*/
+
+
+
+body {
+	background-color: #e7e6e2;
+	font-family: "Open Sans", helvetica, arial, sans-serif;
+	color: #52504c;
+}
+h1 {
+	color: #d85339;
+	font-family: "Bree", helvetica, arial, sans-serif;
+}
+
+/* for devices with normal screens */
+h1.logo {
+	margin: 0 auto;
+	width: 232px;
+	height: 86px;
+	background: url('../images/fetch_logo.png') top center no-repeat;
+	text-indent: -9999px;
+	display: block;
+}
+/* for high-resolution devices */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    h1.logo {
+		margin: 0 auto;
+		width: 464px;
+		height: 171px;
+		background: url('../images/fetch_logo_2x.png') top center no-repeat;
+		background-size: ;
+		text-indent: -9999px;
+		display: block;
+	}
+}
+.pitch {
+	
+}
+a.button {
+	font-family: "Bree", helvetica, arial, sans-serif;
+}
+
+.container {
+  padding: 0;
+}
 
 .mmenu {
-  padding: .5em;
+  /* padding: .5em; */
+}
+
+.mmenu ul {
+  padding-top: 0;
 }
 
 .mmenu h1 {
+  margin-left: 1em;
+}
+
+.mmenu h1,
+.mmenu h1 a {
   color: rgba( 255, 255, 255, 0.6 );
-  font-size: 36px;
+  font-size: 20px;
+}
+
+.mmenu a.btn-default {
+  background-color: white;
 }
 
 #main-header {
@@ -46,6 +113,11 @@ body.index #main-header {
 }
 
 /* Browse */
+.pet-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .pet-container .pet-images img {
   width: 100%;
 }
@@ -53,10 +125,13 @@ body.index #main-header {
 .pet-container .pet-images {
 }
 
-#filter-settings {
-  margin-left: 65px;
+#filter-settings h1 {
+  padding-left: 65px;
 }
-
-/* Organization */
-
-
+#filter-settings .section {
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+#filter-settings #distance {
+  margin-top: .5em;
+}

@@ -1,19 +1,23 @@
-var express = require('express');
+var fs = require('fs');
 var http = require('http');
 var path = require('path');
+var util = require('util');
 var querystring = require('querystring');
+var express = require('express');
 var swig = require('swig');
 var aggregate = require('./aggregate');
 var organization = require('./organization');
 
 // Constants
-var admin_email = 'getfetch@gmail.com';
-var admin_password = process.env.ADMIN_PASSWORD || '';
+var ADMIN_EMAIL = 'getfetch@gmail.com';
+var ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
+var ADMIN_ZIPCODE = process.env.ADMIN_ZIPCODE || 15220;
+var PUBLIC_DIR = path.join(__dirname, 'public');
 
 // App config
 var app = express();
 app.engine('html', swig.renderFile);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(PUBLIC_DIR));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: process.env.SECRET_KEY || 'DEVELOPMENT'}));
@@ -42,12 +46,16 @@ app.get('/*', function(request, response, next) {
   }
 });
 
-app.get('/', function (request, response) {
+app.get('/', function(request, response) {
   response.render('index', { /* template locals context */ });
 });
 
 app.get('/browse', function(request, response) {
   response.render('browse');
+});
+
+app.get('/info/:id', function(request, response) {
+  response.render('info', { id: request.params.id });
 });
 
 app.get('/organization', function(request, response) {
@@ -62,8 +70,8 @@ app.get('/login', function (request, response) {
     response.render('login', {next: request.query.next});
   }
 })
-.post('/login', function (request, response) {
-  if (request.body.email !== admin_email || request.body.password !== admin_password) {
+.post('/login', function(request, response) {
+  if (request.body.email !== ADMIN_EMAIL || request.body.password !== ADMIN_PASSWORD) {
     response.render('login', {
       email: request.body.email,
       error: 'Incorrect email or password.',
@@ -75,13 +83,34 @@ app.get('/login', function (request, response) {
   }
 });
 
-app.get('/logout', function (request, response) {
+app.get('/logout', function(request, response) {
   request.session.loggedIn = false;
   response.redirect('/');
 });
 
-app.get('/admin', requireLogin, function (request, response) {
+app.get('/admin', requireLogin, function(request, response) {
   response.render('admin');
+});
+
+app.get('/aggregate', requireLogin, function(request, response) {
+  aggregate.request(ADMIN_ZIPCODE, function(content) {
+    response.setHeader('Content-Type', 'application/json');
+    response.send(content);
+  });
+});
+app.post('/aggregate', requireLogin, function(request, response) {
+  aggregate.pull(ADMIN_ZIPCODE, function(pets) {
+    var data_dir = path.join(PUBLIC_DIR, 'data');
+    var data_file = path.join(data_dir, 'dogs.json');
+
+    fs.writeFile(data_file, util.format('%j', pets), function(err) {
+      if (err) {
+        response.send('Could not generate files. <br /><br />' + err + '<br /><br /><a href="/admin">Back to Admin</a>');
+      } else {
+        response.send('Files generated successfully. <br /><br /><a href="/admin">Back to Admin</a>');
+      }
+    });
+  });
 });
 
 // Run server
