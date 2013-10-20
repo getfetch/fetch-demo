@@ -1,5 +1,9 @@
 body { }
 
+.container {
+  padding: 0;
+}
+
 .mmenu {
   /* padding: .5em; */
 }
@@ -55,6 +59,11 @@ body.index #main-header {
 }
 
 /* Browse */
+.pet-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .pet-container .pet-images img {
   width: 100%;
 }

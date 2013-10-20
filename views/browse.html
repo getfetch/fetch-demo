@@ -14,24 +14,22 @@
   
 {% block content %}
 
-<div class="pet-container">
-  <div class="pet-summary">
+<ul class="pet-container">
+  <li class="pet summary">
     <div class="pet-images">
       <img src="/images/promoted1.jpg" />
       <!-- <img src="/images/promoted2.jpg" /> -->
     </div>
-    <div class="pet-info">
-      <div class="name">
-        Lucy
-      </div>
-      <div class="actions">
-        <a href="#">Favorite</a>
-        <a href="#">Share</a>
-        <a href="#">Info</a>
-      </div>
+    <div class="pet-name">
+      Lucy
     </div>
-  </div>
-</div>
+    <div class="pet-actions">
+      <a href="#">Favorite</a>
+      <a href="#">Info</a>
+      <a href="#">Share</a>
+    </div>
+  </li>
+</ul>
 
 {% endblock %}
 
