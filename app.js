@@ -1,3 +1,4 @@
+var fs = require('fs');
 var http = require('http');
 var path = require('path');
 var util = require('util');
@@ -10,11 +11,12 @@ var aggregate = require('./aggregate');
 var ADMIN_EMAIL = 'getfetch@gmail.com';
 var ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
 var ADMIN_ZIPCODE = process.env.ADMIN_ZIPCODE || 15220;
+var PUBLIC_DIR = path.join(__dirname, 'public');
 
 // App config
 var app = express();
 app.engine('html', swig.renderFile);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(PUBLIC_DIR));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: process.env.SECRET_KEY || 'DEVELOPMENT'}));
@@ -84,6 +86,20 @@ app.get('/aggregate', requireLogin, function(request, response) {
   aggregate.request(ADMIN_ZIPCODE, function(content) {
     response.setHeader('Content-Type', 'application/json');
     response.send(content);
+  });
+});
+app.post('/aggregate', requireLogin, function(request, response) {
+  aggregate.pull(ADMIN_ZIPCODE, function(pets) {
+    var data_dir = path.join(PUBLIC_DIR, 'data');
+    var data_file = path.join(data_dir, 'dogs.json');
+
+    fs.writeFile(data_file, util.format('%j', pets), function(err) {
+      if (err) {
+        response.send('Could not generate files. <br /><br />' + err + '<br /><br /><a href="/admin">Back to Admin</a>');
+      } else {
+        response.send('Files generated successfully. <br /><br /><a href="/admin">Back to Admin</a>');
+      }
+    });
   });
 });
 
