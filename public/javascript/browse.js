@@ -2,6 +2,8 @@ var PetBrowser = (function() {
   var result;
   var dogToDisplay;
 
+  console.log('test');
+
   function loadDogs(dogs) {
     var breeds = [];
     var $template = $('#pet-template');
@@ -11,6 +13,8 @@ var PetBrowser = (function() {
 
     // Render dogs
     $.each(dogs, function(i, dog) {
+      console.log("Loading dog: ", dog);
+
       if(displayId === dog.id) {
         dogToDisplay = dog;
       }
@@ -66,7 +70,7 @@ var PetBrowser = (function() {
 
     if(dogToDisplay) {
       setTimeout(function() {
-        displayDog(dogToDisplay);
+        Info.popInfo(dogToDisplay);
       }, 100);
     }
   }
@@ -125,7 +129,7 @@ var PetBrowser = (function() {
     });
 
     $('.pet-container').on('click', '.pet-info-link', function() {
-      result.popInfo($(this).parents('.pet').data('object'));
+      Info.popInfo($(this).parents('.pet').data('object'));
       return false;
     });
   });
@@ -137,92 +141,9 @@ var PetBrowser = (function() {
     'PA294': 'Animal Advocates'
   };
 
-  function lookupShelter(id) {
-    return shelterNames[id] || id;
-  }
-
-  // Info page
-  //
-  var infoDoc;
-  var pageCache;
-
-  $.ajax('/info')
-    .done(function(data) {
-      infoDoc = createDocument(data);
-      console.log(infoDoc);
-    });
-
-  function cachePage() {
-    pageCache = {
-      title: document.title,
-      body: document.body,
-      positionY: window.pageYOffset,
-      positionX: window.pageXOffset
-    };
-  }
-
-  $(window).on('popstate', function() {
-    restoreCachedPage();
-  });
-
-  function restoreCachedPage() {
-    if(!pageCache) {
-      return;
-    }
-
-    document.title = pageCache.title;
-    document.documentElement.replaceChild(pageCache.body, document.body);
-
-    window.history.replaceState({}, '', '/browse');
-
-    PageSetup();
-
-    window.scrollTo(pageCache.positionX, pageCache.positionY);
-  }
-
-  function createDocument(html) {
-    var doc = document.implementation.createHTMLDocument('');
-    doc.open('replace');
-    doc.write(html);
-    doc.close();
-    return doc;
-  }
-
-  function displayDog(dog) {
-    cachePage();
-    document.title = dog.name;
-    document.documentElement.replaceChild($(infoDoc.body).clone()[0], document.body);
-
-    window.history.pushState({}, '', '/browse/' + dog.id);
-    console.log(infoDoc);
-
-    window.scrollTo(0, 0);
-
-    PageSetup();
-
-    $('#back-link').click(function() {
-      console.log('back');
-      restoreCachedPage();
-      return false;
-    });
-
-    $('#main-header-title').text(dog.name);
-    $('.pet').addClass(dog.options.join(' '));
-    $('.pet-name').text(dog.name);
-    $('.pet-age-sex').text(dog.age + " " + dog.sex);
-    $('.pet-breed').text(dog.breeds[0]);
-    $('.pet-description').append($(dog.description));
-    $('.pet-image').append($('<img src="' + dog.photoUrls[0] + '" />'));
-
-    $('.breeder-name').text(lookupShelter(dog.organization.id));
-    $('.breeder-email').text(dog.organization.email);
-    $('.breeder-address').text(dog.organization.address);
-    $('.breeder-phone').text(dog.organization.phone);
-  }
-
   result = {
-    popInfo: function(dog) {
-      displayDog(dog);
+    lookupShelter: function(id) {
+      return shelterNames[id] || id;
     }
   };
 
