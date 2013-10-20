@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block menuleft %}
-  <a id="back-link" class="btn btn-default" href="/browse">Back</a>
+  <a id="back-link" class="btn btn-link" href="/browse"><i class="icon-left-open"></i></a>
 {% endblock %}
 
 {% block menuright %}
@@ -17,37 +17,40 @@
 {% endblock %}
   
 {% block content %}
-<div class="pet">
-  <div class="pet-image">
-  </div>
+<section class="pet">
+	<article class="info">
+		<h2 class="pet-name"></h2>
+		<div class="pet-age-sex"></div>
+		<div class="pet-breed"></div>
+		
+		<a id="reserve-pet" class="col-xs-12 btn btn-success" href="#">Reserve</a>
+	</article>
 
-  <div class="pet-name">
-  </div>
-  <div class="pet-age-sex">
-  </div>
-  <div class="pet-breed">
-  </div>
+	<hr />
 
-  <a id="reserve-pet" href="#">Reserve</a>
+	<article class="pet-description">
+		<h3>About <span class="pet-name"></span></h3>
+	</article>
+	
+	<hr />
 
-  <div class="pet-description">
-  </div>
+  {# <div class="pet-image"> #}
+  {# </div> #}
 
-  <div class="breeder">
-    <div class="breeder-name">
-    </div>
-    <div class="breeder-phone">
-    </div>
-    <div class="breeder-email">
-    </div>
-    <div class="breeder-address">
-    </div>
-    <div class="breeder-map">
-      <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-    </div>
-    
-  </div>
-</div>
+	<article class="breeder">
+		<div class="breeder-name"></div>
+		
+		<div class="breeder-phone"></div>
+		
+		<div class="breeder-email"></div>
+		
+		<div class="breeder-address"></div>
+		
+		<div class="breeder-map">
+		  <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		</div>
+	</article>
+</section>
 {% endblock %}
 
 {% block panel %}
