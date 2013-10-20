@@ -9,10 +9,15 @@ Fetch color scheme
 
 
 body {
-	padding-top: 50px;
+	max-width: 568px;
+	margin: 0 auto;
+	padding-top: 72px;
 	background-color: #e7e6e2;
 	font-family: "Open Sans", helvetica, arial, sans-serif;
 	color: #52504c;
+}
+.navbar-default {
+	background-color: #fff;
 }
 h1 {
 	color: #d85339;
@@ -90,6 +95,7 @@ footer {
 	padding: 0;
 }
 .mmenu {
+	background-color: #52504c;
 	/* padding: .5em; */
 }
 .mmenu ul {
@@ -167,9 +173,7 @@ body.index #main-header {
 	margin: 0 0 12px;
 	height: 240px;
 	background-color: #fff;
-	-webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.25);
--moz-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.25);
-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.25);
+	border-bottom: 1px solid #ccc;
 }
 .pet-container .pet-images {
 	width: 100%;
@@ -187,6 +191,9 @@ box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.25);
     -webkit-box-shadow: inset 1px -40px 60px -7px rgba(0,0,0,0.7);
 	-moz-box-shadow: inset 1px -40px 60px -7px rgba(0,0,0,0.7);
 	box-shadow: inset 1px -40px 60px -7px rgba(0,0,0,0.7);
+}
+.pet-actions .pet-info-link.btn {
+	font-size: 14px;
 }
 .pet-container .pet-images img {
 	width: 100%;
@@ -206,12 +213,18 @@ box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.25);
 	background-image: url('../images/divider.png');
 	background-repeat: no-repeat;
 }
+.pet-favorite-link.btn, .pet-share-link.btn {
+	color: #52504c;
+}
 .pet-favorite-link {
-	padding-right: 20px;
+	padding-right: 30px;
 	background-position: right bottom;
 }
+.pet-favorite-link.favorited {
+  color: red;
+}
 .pet-share-link {
-	padding-left: 20px;
+	padding-left: 30px;
 	background-position: left bottom;
 }
 h2 {
@@ -223,6 +236,12 @@ h2 {
 	font-family: "Bree", helvetica, arial, sans-serif;
 	font-size: 24px;
 	z-index: 999;
+}
+.info h2, .info h3 {
+	margin: 0;
+	position: static;
+	color: #d85339;
+	font-family: "Bree", helvetica, arial, sans-serif;
 }
 #filter-settings h1 {
 	padding-left: 65px;
@@ -239,12 +258,81 @@ h2 {
 	font-size: 1.4em;
 	line-height: 1em;
 }
+.mmenu li > a {
+	margin-left: 12px;
+}
+.mmenu li > a, .mmenu li > span {
+text-indent: 0px;
+white-space: nowrap;
+line-height: 40px;
+}
+
+/* Favorites */
+.favorite-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.favorite-item {
+  display: block;
+}
+.favorite-item
+.favorite-item:link,
+.favorite-item:hover {
+  text-decoration: none;
+}
+.favorite-image {
+  display: block;
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+.favorite-description {
+  display: block;
+  margin-left: 212px
+}
+.favorite-description h2 {
+  color: #555;
+}
+.favorite-description p {
+  color: #555;
+}
+.favorite-description p.available {
+  color: #2c6;
+  font-weight: bold;
+}
+.favorite-container .favorite-images img {
+  width: 100%;
+}
+.favorite-container .favorite-images {
+}
 
 /* Info */
 .breeder-map {
 	width: 300px;
 	margin: auto;
 }
+.info article {
+	margin: 12px;
+}
+
+.info hr {
+	border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* About */
+body.about .container p {
+  padding: 0 .5em;
+  text-align: justify;
+}
+
+/* Contact */
+body.contact .container p {
+  padding: 0 .5em;
+}
 
 /* About */
 body.about .container p {
@@ -268,13 +356,9 @@ body.contact .container p {
   padding: 0 .5em;
 }
 
-/* About */
-body.about .container p {
-  padding: 0 .5em;
-  text-align: justify;
-}
-
-/* Contact */
-body.contact .container p {
-  padding: 0 .5em;
+/* Profile */
+body.user .btn {
+  display: block;
+  max-width: 6em;
+  margin: auto;
 }

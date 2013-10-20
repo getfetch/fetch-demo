@@ -1,5 +1,4 @@
 var PetBrowser = (function() {
-
   var result;
   var dogToDisplay;
 
@@ -7,8 +6,11 @@ var PetBrowser = (function() {
     var breeds = [];
     var $template = $('#pet-template');
 
-    $.each(dogs, function(i, dog) {
+    // Load favorite dogs
+    var favoriteDogIds = localStorageGetArray('favorites');
 
+    // Render dogs
+    $.each(dogs, function(i, dog) {
       if(displayId === dog.id) {
         dogToDisplay = dog;
       }
@@ -25,6 +27,20 @@ var PetBrowser = (function() {
       $dog.attr('style', '');
       $dog.attr('id', '');
 
+      var $favoriteLink = $dog.find('.pet-favorite-link');
+      $favoriteLink.on('click', function() {
+        // Toggle favorite
+        if (localStoragePop('favorites', dog.id)) {
+          $(this).removeClass('favorited');
+        } else {
+          localStoragePush('favorites', dog.id);
+          $(this).addClass('favorited');
+        }
+        return false;
+      });
+      if (favoriteDogIds.indexOf(dog.id.toString()) !== -1) {
+        $favoriteLink.addClass('favorited');
+      }
       $dog.find('.pet-name').text(dog.name);
       $dog.find('.pet-info-link').attr('href', '/browse/' + dog.id);
 
@@ -52,7 +68,6 @@ var PetBrowser = (function() {
         displayDog(dogToDisplay);
       }, 100);
     }
-
   }
 
   var filter = {
@@ -63,12 +78,10 @@ var PetBrowser = (function() {
   };
 
   function matchesFilter(dog) {
-    var matches = 
-      (filter.size && dog.size != filter.size) ||
+    var matches = (filter.size && dog.size != filter.size) ||
       (filter.sex && dog.sex != filter.sex) ||
       (filter.age && dog.age != filter.age) ||
-      (filter.breed != 'any' && $.inArray(filter.breed, dog.breeds))
-      ;
+      (filter.breed != 'any' && $.inArray(filter.breed, dog.breeds));
 
     return matches;
   }
@@ -106,7 +119,6 @@ var PetBrowser = (function() {
 
 
   $(function() {
-
     $('#filter-settings input:radio, #breed').on('change', function() {
       filterChanged();
     });
@@ -123,9 +135,10 @@ var PetBrowser = (function() {
     'PA834': 'Biggies Bullies',
     'PA294': 'Animal Advocates'
   };
+
   function lookupShelter(id) {
     return shelterNames[id] || id;
-  };
+  }
 
   // Info page
   //
