@@ -240,7 +240,7 @@ article.info div {
 	padding-left: 30px;
 	background-position: left bottom;
 }
-h2 {
+body.browse .pet h2 {
 	margin: 0 0 10px 8px;
 	position: relative;
 	bottom: 32px;
