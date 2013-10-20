@@ -1,5 +1,4 @@
 var PetBrowser = (function() {
-
   var result;
   var dogToDisplay;
 
@@ -61,7 +60,6 @@ var PetBrowser = (function() {
         displayDog(dogToDisplay);
       }, 100);
     }
-
   }
 
   var filter = {
@@ -72,12 +70,10 @@ var PetBrowser = (function() {
   };
 
   function matchesFilter(dog) {
-    var matches = 
-      (filter.size && dog.size != filter.size) ||
+    var matches = (filter.size && dog.size != filter.size) ||
       (filter.sex && dog.sex != filter.sex) ||
       (filter.age && dog.age != filter.age) ||
-      (filter.breed != 'any' && $.inArray(filter.breed, dog.breeds))
-      ;
+      (filter.breed != 'any' && $.inArray(filter.breed, dog.breeds));
 
     return matches;
   }
@@ -115,7 +111,6 @@ var PetBrowser = (function() {
 
 
   $(function() {
-
     $('#filter-settings input:radio, #breed').on('change', function() {
       filterChanged();
     });
@@ -132,9 +127,10 @@ var PetBrowser = (function() {
     'PA834': 'Biggies Bullies',
     'PA294': 'Animal Advocates'
   };
+
   function lookupShelter(id) {
     return shelterNames[id] || id;
-  };
+  }
 
   // Info page
   //
