@@ -212,6 +212,9 @@ box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.25);
 	padding-right: 20px;
 	background-position: right bottom;
 }
+.pet-favorite-link.favorited {
+  color: red;
+}
 .pet-share-link {
 	padding-left: 20px;
 	background-position: left bottom;

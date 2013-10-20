@@ -6,6 +6,10 @@ var PetBrowser = (function() {
     var breeds = [];
     var $template = $('#pet-template');
 
+    // Load favorite dogs
+    var favoriteDogIds = localStorageGetArray('favorites');
+
+    // Render dogs
     $.each(dogs, function(i, dog) {
       if(displayId === dog.id) {
         dogToDisplay = dog;
@@ -23,16 +27,20 @@ var PetBrowser = (function() {
       $dog.attr('style', '');
       $dog.attr('id', '');
 
-      $dog.find('.pet-favorite-link').on('click', function() {
+      var $favoriteLink = $dog.find('.pet-favorite-link');
+      $favoriteLink.on('click', function() {
         // Toggle favorite
         if (localStoragePop('favorites', dog.id)) {
-          // TODO: Uncheck 'favorite' checkbox
+          $(this).removeClass('favorited');
         } else {
-          // TODO: Check 'favorite' checkbox
           localStoragePush('favorites', dog.id);
+          $(this).addClass('favorited');
         }
         return false;
       });
+      if (favoriteDogIds.indexOf(dog.id.toString()) !== -1) {
+        $favoriteLink.addClass('favorited');
+      }
       $dog.find('.pet-name').text(dog.name);
       $dog.find('.pet-info-link').attr('href', '/browse/' + dog.id);
 
