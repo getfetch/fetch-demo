@@ -96,8 +96,9 @@ app.post('/aggregate', requireLogin, function(request, response) {
   aggregate.pull(ADMIN_ZIPCODE, function(pets) {
     var data_dir = path.join(PUBLIC_DIR, 'data');
     var data_file = path.join(data_dir, 'dogs.json');
+    var json = JSON.stringify(pets, null, 2);
 
-    fs.writeFile(data_file, util.format('%j', pets), function(err) {
+    fs.writeFile(data_file, json, function(err) {
       if (err) {
         response.send('Could not generate files. <br /><br />' + err + '<br /><br /><a href="/admin">Back to Admin</a>');
       } else {
