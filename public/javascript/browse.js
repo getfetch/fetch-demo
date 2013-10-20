@@ -8,7 +8,6 @@ var PetBrowser = (function() {
     var $template = $('#pet-template');
 
     $.each(dogs, function(i, dog) {
-
       if(displayId === dog.id) {
         dogToDisplay = dog;
       }
@@ -25,6 +24,16 @@ var PetBrowser = (function() {
       $dog.attr('style', '');
       $dog.attr('id', '');
 
+      $dog.find('.pet-favorite-link').on('click', function() {
+        // Toggle favorite
+        if (localStoragePop('favorites', dog.id)) {
+          // TODO: Uncheck 'favorite' checkbox
+        } else {
+          // TODO: Check 'favorite' checkbox
+          localStoragePush('favorites', dog.id);
+        }
+        return false;
+      });
       $dog.find('.pet-name').text(dog.name);
       $dog.find('.pet-info-link').attr('href', '/browse/' + dog.id);
 
