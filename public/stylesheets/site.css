@@ -178,3 +178,10 @@ body.index #main-header {
   width: 300px;
   margin: auto;
 }
+
+/* About */
+body.about .container p {
+  padding: 0 .5em;
+  text-align: justify;
+}
+

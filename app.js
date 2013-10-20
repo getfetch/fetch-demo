@@ -63,6 +63,10 @@ app.get('/organization/:id', function(request, response) {
   organization.load(request.params.id, function(model){response.render('organization', model)});
 });
 
+app.get('/about', function(request, response) {
+  response.render('about');
+});
+
 app.get('/login', function (request, response) {
   if (request.session.loggedIn) {
     response.redirect('/');
