@@ -97,6 +97,12 @@ footer {
   font-size: 20px;
 }
 
+.mmenu .logo {
+  width: 140px;
+  height: 50px;
+  background-size: 100%;
+}
+
 .mmenu a.btn-default {
   background-color: white;
 }
@@ -177,4 +183,15 @@ body.index #main-header {
 .breeder-map {
   width: 300px;
   margin: auto;
+}
+
+/* About */
+body.about .container p {
+  padding: 0 .5em;
+  text-align: justify;
+}
+
+/* Contact */
+body.contact .container p {
+  padding: 0 .5em;
 }

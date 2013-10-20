@@ -67,12 +67,12 @@ app.get('/profile', function(request, response){
     profile.load(request.params.id, function(model){response.render('profile', model)});
 });
 
-app.get('/about', function(request, response){
-    response.render('about');
+app.get('/about', function(request, response) {
+  response.render('about');
 });
 
-app.get('/contact', function(request, response){
-    response.render('contact');
+app.get('/contact', function(request, response) {
+  response.render('contact');
 });
 
 app.get('/login', function (request, response) {
