@@ -50,8 +50,8 @@ app.get('/', function(request, response) {
   response.render('index', { /* template locals context */ });
 });
 
-app.get('/browse', function(request, response) {
-  response.render('browse');
+app.get('/browse/:id?', function(request, response) {
+  response.render('browse', { id: request.params.id });
 });
 
 app.get('/info', function(request, response) {

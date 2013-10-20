@@ -1,12 +1,17 @@
 var PetBrowser = (function() {
 
   var result;
+  var dogToDisplay;
 
   function loadDogs(dogs) {
     var breeds = [];
     var $template = $('#pet-template');
 
     $.each(dogs, function(i, dog) {
+
+      if(displayId === dog.id) {
+        dogToDisplay = dog;
+      }
 
       $.each(dog.breeds, function(i, breed) {
         if($.inArray(breed, breeds) == -1) {
@@ -21,6 +26,7 @@ var PetBrowser = (function() {
       $dog.attr('id', '');
 
       $dog.find('.pet-name').text(dog.name);
+      $dog.find('.pet-info-link').attr('href', '/browse/' + dog.id);
 
       $.each(dog.photoUrls, function(i, url) {
         var $img = $('<img src="' + url + '" />');
@@ -40,6 +46,13 @@ var PetBrowser = (function() {
     });
 
     filterDogs();
+
+    if(dogToDisplay) {
+      setTimeout(function() {
+        displayDog(dogToDisplay);
+      }, 100);
+    }
+
   }
 
   var filter = {
@@ -134,9 +147,16 @@ var PetBrowser = (function() {
     };
   }
 
+  $(window).on('popstate', function() {
+    restoreCachedPage();
+  });
+
   function restoreCachedPage() {
     document.title = pageCache.title;
     document.documentElement.replaceChild(pageCache.body, document.body);
+
+    window.history.replaceState({}, '', '/browse');
+
     PageSetup();
 
     window.scrollTo(pageCache.positionX, pageCache.positionY);
@@ -155,6 +175,7 @@ var PetBrowser = (function() {
     document.title = dog.name;
     document.documentElement.replaceChild($(infoDoc.body).clone()[0], document.body);
 
+    window.history.pushState({}, '', '/browse/' + dog.id);
     console.log(infoDoc);
 
     window.scrollTo(0, 0);

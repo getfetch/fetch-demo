@@ -30,6 +30,14 @@
   </li>
 </ul>
 
+<script>
+  {% if id %}
+    var displayId = {{ id }};
+  {% else %}
+    var displayId = null;
+  {% endif %}
+</script>
+
 {% endblock %}
 
 {% block panel %}
