@@ -16,6 +16,14 @@ body {
 	font-family: "Open Sans", helvetica, arial, sans-serif;
 	color: #52504c;
 }
+body.index {
+	max-width: 568px;
+	margin: 0 auto;
+	padding-top: 16px;
+	background-color: #e7e6e2;
+	font-family: "Open Sans", helvetica, arial, sans-serif;
+	color: #52504c;
+}
 .team {
 	
 }
