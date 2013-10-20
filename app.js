@@ -47,7 +47,11 @@ app.get('/*', function(request, response, next) {
 });
 
 app.get('/', function(request, response) {
-  response.render('index', { /* template locals context */ });
+  response.render('index');
+});
+
+app.get('/notifications', function(request, response) {
+  response.render('notifications', { /* template locals context */ });
 });
 
 app.get('/browse/:id?', function(request, response) {
@@ -58,8 +62,12 @@ app.get('/info', function(request, response) {
   response.render('info');
 });
 
+app.get('/favorites/:id?', function(request, response) {
+  response.render('favorites', { id: request.params.id });
+});
+
 app.get('/organization/:id', function(request, response) {
-  organization.load(request.params.id, function(model){response.render('organization', model)});
+  organization.load(request.params.id, function(model) { response.render('organization', model); });
 });
 
 app.get('/profile', function(request, response){

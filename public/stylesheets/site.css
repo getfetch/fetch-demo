@@ -9,7 +9,9 @@ Fetch color scheme
 
 
 body {
-	padding-top: 50px;
+	max-width: 568px;
+	margin: 0 auto;
+	padding-top: 72px;
 	background-color: #e7e6e2;
 	font-family: "Open Sans", helvetica, arial, sans-serif;
 	color: #52504c;
@@ -218,6 +220,9 @@ body.index #main-header {
 	padding-right: 30px;
 	background-position: right bottom;
 }
+.pet-favorite-link.favorited {
+  color: red;
+}
 .pet-share-link {
 	padding-left: 30px;
 	background-position: left bottom;
@@ -260,6 +265,46 @@ h2 {
 text-indent: 0px;
 white-space: nowrap;
 line-height: 40px;
+}
+
+/* Favorites */
+.favorite-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.favorite-item {
+  display: block;
+}
+.favorite-item
+.favorite-item:link,
+.favorite-item:hover {
+  text-decoration: none;
+}
+.favorite-image {
+  display: block;
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+.favorite-description {
+  display: block;
+  margin-left: 212px
+}
+.favorite-description h2 {
+  color: #555;
+}
+.favorite-description p {
+  color: #555;
+}
+.favorite-description p.available {
+  color: #2c6;
+  font-weight: bold;
+}
+.favorite-container .favorite-images img {
+  width: 100%;
+}
+.favorite-container .favorite-images {
 }
 
 /* Info */
@@ -309,4 +354,11 @@ body.about .container p {
 /* Contact */
 body.contact .container p {
   padding: 0 .5em;
+}
+
+/* Profile */
+body.user .btn {
+  display: block;
+  max-width: 6em;
+  margin: auto;
 }

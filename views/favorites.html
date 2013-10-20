@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}Favorites{% endblock %}
+
+{% block class %}favorites{% endblock %}
+
+{% block head %}
+  {% parent %}
+  <script src="/javascript/favorites.js" />
+{% endblock %}
+
+{% block content %}
+  <ul class="favorite-container">
+    <li id="favorite-template" class="favorite summary" data-info-url="#" style="display: none;">
+      <a class="favorite-item" href="#">
+        <img src="#" class="favorite-image"></img>
+        <div class="favorite-description">
+          <h2 class="favorite-name">Lucy</h2>
+          <p class="favorite-status">
+            Available
+          </p>
+          <p class="favorite-location">
+            Pittsburgh, PA
+          </p>
+        </div>
+        <div class="clearfix"></div>
+      </a>
+    </li>
+  </ul>
+
+  <script>
+    {% if id %}
+      var displayId = {{ id }};
+    {% else %}
+      var displayId = null;
+    {% endif %}
+  </script>
+{% endblock %}
