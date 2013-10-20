@@ -67,6 +67,10 @@ app.get('/about', function(request, response) {
   response.render('about');
 });
 
+app.get('/contact', function(request, response) {
+  response.render('contact');
+});
+
 app.get('/login', function (request, response) {
   if (request.session.loggedIn) {
     response.redirect('/');

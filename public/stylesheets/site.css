@@ -185,3 +185,7 @@ body.about .container p {
   text-align: justify;
 }
 
+/* Contact */
+body.contact .container p {
+  padding: 0 .5em;
+}
