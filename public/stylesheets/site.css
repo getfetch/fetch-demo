@@ -10,6 +10,8 @@ Fetch color scheme
 
 
 body {
+	max-width: 768px;
+	margin: 0 auto;
 	background-color: #e7e6e2;
 	font-family: "Open Sans", helvetica, arial, sans-serif;
 	color: #52504c;
