@@ -7,9 +7,9 @@ var swig = require('swig');
 var aggregate = require('./aggregate');
 
 // Constants
-var admin_email = 'getfetch@gmail.com';
-var admin_password = process.env.ADMIN_PASSWORD || '';
-var admin_zipcode = process.env.ADMIN_ZIPCODE || 15220;
+var ADMIN_EMAIL = 'getfetch@gmail.com';
+var ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
+var ADMIN_ZIPCODE = process.env.ADMIN_ZIPCODE || 15220;
 
 // App config
 var app = express();
@@ -59,7 +59,7 @@ app.get('/login', function (request, response) {
   }
 })
 .post('/login', function (request, response) {
-  if (request.body.email !== admin_email || request.body.password !== admin_password) {
+  if (request.body.email !== ADMIN_EMAIL || request.body.password !== ADMIN_PASSWORD) {
     response.render('login', {
       email: request.body.email,
       error: 'Incorrect email or password.',
@@ -81,7 +81,7 @@ app.get('/admin', requireLogin, function (request, response) {
 });
 
 app.get('/aggregate', requireLogin, function (request, response) {
-  var dogs = aggregate.pull(admin_zipcode, function(content) {
+  var dogs = aggregate.pull(ADMIN_ZIPCODE, function(content) {
     response.setHeader('Content-Type', 'application/json');
     response.send(content);
   });
