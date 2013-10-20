@@ -28,6 +28,7 @@ var PetBrowser = (function() {
       $dog.attr('id', '');
       $dog.addClass(dog.options.join(' '));
 
+      var url = '/browse/' + dog.id;
       var $favoriteLink = $dog.find('.pet-favorite-link');
       $favoriteLink.on('click', function() {
         // Toggle favorite
@@ -43,7 +44,13 @@ var PetBrowser = (function() {
         $favoriteLink.addClass('favorited');
       }
       $dog.find('.pet-name').text(dog.name);
-      $dog.find('.pet-info-link').attr('href', '/browse/' + dog.id);
+      $dog.find('.pet-info-link').attr('href', url);
+      $dog.find('.pet-share-link').attr('data-target', '#shareModal-' + dog.id);
+
+      $dog.find('.shareModal').attr('id', 'shareModal-' + dog.id);
+      $dog.find('.share-button').attr('st_url', EXTERNAL_URL + url);
+      $dog.find('.share-button').attr('st_title', 'How adorable! Take a look at this dog, ' + dog.name + ' #fetch #swpgh');
+      $dog.find('.share-button').attr('st_summary', 'How adorable! Take a look at this dog, ' + dog.name + ' #fetch #swpgh');
 
       $.each(dog.photoUrls, function(i, url) {
         var $img = $('<img src="' + url + '" />');

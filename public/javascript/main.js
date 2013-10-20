@@ -1,3 +1,4 @@
+var EXTERNAL_URL = 'http://getfetch.co';
 
 var PageSetup = function() {
   $('#main-menu').mmenu();

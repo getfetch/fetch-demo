@@ -12,9 +12,8 @@
 {% block menuright %}
   <a id="filter-link" class="btn btn-link" href="#">Filter</a>
 {% endblock %}
-  
-{% block content %}
 
+{% block content %}
 <ul class="pet-container">
   <li id="pet-template" class="pet summary" style="display: none;">
     <div class="pet-images">
@@ -28,8 +27,30 @@
         <a href="#" class="pet-info-link btn btn-link">more info</a>
        </div>
        <div class="col-xs-3">
-        <a href="#" class="pet-share-link btn btn-link"><i class="icon-export"></i></a>
+        <a href="#" class="pet-share-link btn btn-link" data-toggle="modal" data-target="#shareModal-0"><i class="icon-export"></i></a>
        </div>
+    </div>
+
+    <div class="modal fade shareModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Puppy love</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <span class="share-button st_facebook_large" displayText="Facebook" st_url="#" st_title=""></span>
+              <span class="share-button st_twitter_large" displayText="Tweet" st_url="#" st_title=""></span>
+              <span class="share-button st_pinterest_large" displayText="Pinterest" st_url="#" st_title=""></span>
+              <span class="share-button st_email_large" displayText="Email" st_url="#" st_title=""></span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </li>
 </ul>
@@ -41,11 +62,9 @@
     var displayId = null;
   {% endif %}
 </script>
-
 {% endblock %}
 
 {% block panel %}
-
   <nav id="filter-settings">
     <h1>Find your bestie</h1>
     <ul>
@@ -112,5 +131,4 @@
       </li>
     </ul>
   </nav>
-
 {% endblock %}

@@ -20,6 +20,11 @@
   <script src="/bower/jquery-mmenu/jquery.mmenu.min.js"></script>
   <script src="/javascript/localStorage.js"></script>
   <script src="/javascript/main.js"></script>
+
+  <script>var switchTo5x=true;</script>
+  <script src="http://w.sharethis.com/button/buttons.js"></script>
+  <script>stLight.options({publisher: "52de07f9-d2a8-41a5-a519-eddce697b1ea", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
   {% endblock %}
   <script>
     (function() {
@@ -66,5 +71,8 @@
     <footer>Copyright &copy; 2013 Fetch</footer>
   </div>
 
+  <div class="modals">
+    {% block modals %}{% endblock %}
+  </div>
 </body>
 </html>
