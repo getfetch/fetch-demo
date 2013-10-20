@@ -1,5 +1,5 @@
 
-$(function() {
+var PageSetup = function() {
   $('#main-menu').mmenu();
   $('#main-menu-link').click(function() {
     $('#main-menu').trigger('open');
@@ -18,4 +18,13 @@ $(function() {
   $('#age').buttonset();
   $('#distance').buttonset();
   $('#sex').buttonset();
+
+  $('#current-location').click(function() {
+    $('#location').val('Pittsburgh, PA');
+    return false;
+  });
+};
+
+$(function() {
+  PageSetup();
 });

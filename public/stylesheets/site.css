@@ -28,6 +28,14 @@ h1.logo {
 	text-indent: -9999px;
 	display: block;
 }
+#featured {
+	margin: 0 auto;
+	width: 320px;
+	height: 200px;
+	background: url('../images/featured.png') top center no-repeat;
+	text-indent: -9999px;
+	display: block;
+}
 /* for high-resolution devices */
 @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
 only screen and (-moz-min-device-pixel-ratio: 1.5),
@@ -39,6 +47,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
 		height: 171px;
 		background: url('../images/fetch_logo_2x.png') top center no-repeat;
 		background-size: 232px 86px;
+		text-indent: -9999px;
+		display: block;
+	}
+	#featured {
+		margin: 0 auto;
+		width: 320px;
+		height: 200px;
+		background: url('../images/featured_2x.png') top center no-repeat;
+		background-size: 320px 200px;
 		text-indent: -9999px;
 		display: block;
 	}
@@ -99,7 +116,10 @@ footer {
   font-size: 2em;
   color: red;
   text-align: center;
-  
+  margin: auto 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Hide header on landing page */
@@ -113,7 +133,11 @@ body.index #main-header {
 .promoted img {
   max-width: 500px;
   width: 49%;
-  
+  display: block;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 1em;
+  margin-left: .66666%;
 }
 
 .buttons {
@@ -142,4 +166,15 @@ body.index #main-header {
 }
 #filter-settings #distance {
   margin-top: .5em;
+}
+#filter-settings #current-location {
+  padding: 2px 2px;
+  font-size: 1.4em;
+  line-height: 1em;
+}
+
+/* Info */
+.breeder-map {
+  width: 300px;
+  margin: auto;
 }

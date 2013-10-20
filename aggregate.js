@@ -55,8 +55,9 @@ function transform(json) {
       breeds: toArray(pet.breeds.breed)
         .map(function(breed) { return breed['$t']; }),
       mix: pet.mix['$t'] === 'yes',
-      shelter: {
+      organization: {
         id: pet.shelterId['$t'],
+        type: 'shelter',
         name: '',  // TODO: Request for name
         email: pet.contact.email['$t'],
       },

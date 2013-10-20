@@ -6,6 +6,7 @@
 
 {% block head %}
   {% parent %}
+  <script src="/javascript/browse.js" />
 {% endblock %}
 
 {% block menuright %}
@@ -15,21 +16,27 @@
 {% block content %}
 
 <ul class="pet-container">
-  <li class="pet summary">
+  <li id="pet-template" class="pet summary" style="display: none;">
     <div class="pet-images">
-      <img src="/images/promoted1.jpg" />
-      <!-- <img src="/images/promoted2.jpg" /> -->
     </div>
     <div class="pet-name">
       Lucy
     </div>
     <div class="pet-actions">
-      <a href="#">Favorite</a>
-      <a href="/info/12345">Info</a>
-      <a href="#">Share</a>
+      <a href="#" class="pet-favorite-link">Favorite</a>
+      <a href="#" class="pet-info-link">Info</a>
+      <a href="#" class="pet-share-link">Share</a>
     </div>
   </li>
 </ul>
+
+<script>
+  {% if id %}
+    var displayId = {{ id }};
+  {% else %}
+    var displayId = null;
+  {% endif %}
+</script>
 
 {% endblock %}
 
@@ -42,11 +49,11 @@
         <div class="section">
           <h2>Size</h2>
           <div id="size">
-            <input type="radio" name="size" id="size-small" />
+            <input type="radio" name="size" id="size-small" value="S" />
             <label for="size-small">Small</label>
-            <input type="radio" name="size" id="size-medium" />
+            <input type="radio" name="size" id="size-medium" value="M" />
             <label for="size-medium">Medium</label>
-            <input type="radio" name="size" id="size-large" />
+            <input type="radio" name="size" id="size-large" value="L" />
             <label for="size-large">Large</label>
           </div>
         </div>
@@ -54,11 +61,8 @@
       <li>
         <div class="section">
           <h2>Breed</h2>
-          <select>
-            <option>Any</option>
-            <option>Golden</option>
-            <option>Bulldog</option>
-            <option>Something else</option>
+          <select id="breed">
+            <option value="any">Any</option>
           </select>
         </div>
       </li>
@@ -66,11 +70,11 @@
         <div class="section">
           <h2>Age</h2>
           <div id="age">
-            <input type="radio" name="age" id="age-puppy" />
+            <input type="radio" name="age" id="age-puppy" value="Young" />
             <label for="age-puppy">Puppy</label>
-            <input type="radio" name="age" id="age-adult" />
+            <input type="radio" name="age" id="age-adult" value="Adult" />
             <label for="age-adult">Adult</label>
-            <input type="radio" name="age" id="age-senior" />
+            <input type="radio" name="age" id="age-senior" value="Senior" />
             <label for="age-senior">Senior</label>
           </div>
         </div>
@@ -79,7 +83,8 @@
         <div class="section">
           <h2>Location</h2>
           <a href="#" id="current-location" class="btn btn-default">◎</a>
-          <input type="text" value="Pittsburgh, PA" />
+          <input id="location" type="text" value="Pittsburgh, PA" />
+          <h2>Distance</h2>
           <div id="distance">
             <input type="radio" name="distance" id="distance-25" />
             <label for="distance-25"> 25 </label>
@@ -94,9 +99,9 @@
         <div class="section">
           <h2>Sex</h2>
           <div id="sex">
-            <input type="radio" name="sex" id="sex-female" />
+            <input type="radio" name="sex" id="sex-female" value="F" />
             <label for="sex-female">Female</label>
-            <input type="radio" name="sex" id="sex-male" />
+            <input type="radio" name="sex" id="sex-male" value="M" />
             <label for="sex-male">Male</label>
           </div>
         </div>
