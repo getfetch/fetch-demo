@@ -28,4 +28,55 @@ function request(zipcode, callback) {
   });
 }
 
+function toArray(item) {
+  if (!item) {
+    return [];
+  } else if (Array.isArray(item)) {
+    return item;
+  } else {
+    return [item];
+  }
+}
+
+function transform(json) {
+  return toArray(json.petfinder.pets.pet).map(function(pet) {
+    // TODO: Filter on availability? pet.status['$t'] === 'A'
+    return {
+      id: pet.id['$t'],
+      name: pet.name['$t'],
+      description: pet.description['$t'],
+      photoUrls: toArray(pet.media.photos.photo)
+        .filter(function(photo) { return photo['@size'] === 'x'; })
+        .sort(function(photo) { return photo['@id']; })
+        .map(function(photo) { return photo['$t']; }),
+      age: pet.age['$t'],    // {'Baby', 'Young', 'Adult', 'Senior'}
+      sex: pet.sex['$t'],    // {'M', 'F'}
+      size: pet.size['$t'],  // {'S', 'M', 'L', 'XL'}
+      breeds: toArray(pet.breeds.breed)
+        .map(function(breed) { return breed['$t']; }),
+      mix: pet.mix['$t'] === 'yes',
+      shelter: {
+        id: pet.shelterId['$t'],
+        email: pet.contact.email['$t'],
+      },
+      options: toArray(pet.options.option)
+        .map(function(option) {
+          return option['$t'];
+        }),
+    };
+  });
+}
+
+function pull(zipcode, callback) {
+  console.log('Fetching dogs...');
+  request(zipcode, function(content) {
+    petfinder = JSON.parse(content);
+    console.log('Transforming...');
+    pets = transform(petfinder);
+    console.log('Done');
+    callback(pets);
+  });
+}
+
 module.exports.request = request;
+module.exports.pull = pull;
