@@ -152,6 +152,10 @@ var PetBrowser = (function() {
   });
 
   function restoreCachedPage() {
+    if(!pageCache) {
+      return;
+    }
+
     document.title = pageCache.title;
     document.documentElement.replaceChild(pageCache.body, document.body);
 
