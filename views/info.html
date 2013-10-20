@@ -17,6 +17,9 @@
 {% endblock %}
   
 {% block content %}
+
+<div class="pet-image"></div>
+
 <section class="pet">
 	<article class="info">
 		<h2 class="pet-name"></h2>
@@ -34,22 +37,22 @@
 	
 	<hr />
 
-  {# <div class="pet-image"> #}
-  {# </div> #}
-
 	<article class="breeder">
-		<div class="breeder-name"></div>
+		<h3 class="breeder-name"></h3>
 		
-		<div class="breeder-phone"></div>
+		<address class="breeder-address"></address>
 		
-		<div class="breeder-email"></div>
-		
-		<div class="breeder-address"></div>
+		<a href="tel:" class="btn btn-primary col-xs-12"><i class="icon-phone"></i> <span class="breeder-phone"></span></a>
+		<a href="mailto:" class="btn btn-primary col-xs-12"><i class="icon-mail"></i> <span class="breeder-email"></span></a>
 		
 		<div class="breeder-map">
-		  <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		  <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;q=Animal+Advocates&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=40.438978,-80.034456&amp;spn=0.019598,0.025749&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 		</div>
+		
+		<a href="#" class="btn btn-primary col-xs-12"><i class="icon-direction"></i> Get Directions</a>
 	</article>
+	
+	<hr />
 </section>
 {% endblock %}
 
