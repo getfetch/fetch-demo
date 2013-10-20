@@ -12,6 +12,11 @@ var FavoriteBrowser = (function() {
       return favoriteDogIds.indexOf(dog.id.toString()) !== -1;
     });
 
+    // Hide 'empty' section
+    if (dogs.length > 0) {
+      $('.empty-favorites').hide();
+    }
+
     // Render dogs
     $.each(dogs, function(i, dog) {
       if(displayId === dog.id) {

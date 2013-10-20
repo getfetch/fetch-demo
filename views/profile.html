@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% block title %}My Profile{% endblock %}
+{% block title %}Profile{% endblock %}
 
 {% block class %}user{% endblock %}
 
@@ -14,7 +14,7 @@
   <div class="user-summary">
     <div class="user-info">
       <div class="well">
-        <form class="form-horizontal">
+        <form action="profile">
           <fieldset>
             <div class="form-group">
                 <label for="timeframe" class="control-label">I want a dog...</label>
@@ -111,5 +111,13 @@
       </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    $('document').ready(function(){
+        $('#cancel').click(function(){
+            window.location = 'browse';
+        });
+    });
+</script>
 
 {% endblock %}

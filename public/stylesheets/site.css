@@ -324,6 +324,10 @@ line-height: 40px;
 .favorite-container .favorite-images {
 }
 
+.empty-favorites {
+  text-align: center;
+}
+
 /* Info */
 .breeder-map {
 	width: 100%;
@@ -341,10 +345,18 @@ line-height: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+body.info .pet-image img {
+  width: 100%;
+}
+
 /* About */
 body.about .container p {
   padding: 0 .5em;
   text-align: justify;
+}
+
+body.about img {
+  max-width: 100%;
 }
 
 /* Contact */

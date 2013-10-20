@@ -26,6 +26,7 @@ var PetBrowser = (function() {
 
       $dog.attr('style', '');
       $dog.attr('id', '');
+      $dog.addClass(dog.options.join(' '));
 
       var $favoriteLink = $dog.find('.pet-favorite-link');
       $favoriteLink.on('click', function() {
@@ -206,6 +207,7 @@ var PetBrowser = (function() {
     });
 
     $('#main-header-title').text(dog.name);
+    $('.pet').addClass(dog.options.join(' '));
     $('.pet-name').text(dog.name);
     $('.pet-age-sex').text(dog.age + " " + dog.sex);
     $('.pet-breed').text(dog.breeds[0]);
