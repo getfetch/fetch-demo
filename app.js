@@ -4,6 +4,7 @@ var path = require('path');
 var querystring = require('querystring');
 var swig = require('swig');
 var aggregate = require('./aggregate');
+var organization = require('./organization');
 
 // Constants
 var admin_email = 'getfetch@gmail.com';
@@ -47,6 +48,11 @@ app.get('/', function (request, response) {
 
 app.get('/browse', function(request, response) {
   response.render('browse');
+});
+
+app.get('/organization', function(request, response) {
+  //console.log('request: %j', request);
+  organization.load(0, function(model){response.render('organization', model)});
 });
 
 app.get('/login', function (request, response) {
