@@ -6,6 +6,7 @@
 
 {% block head %}
   {% parent %}
+  <script src="/javascript/browse.js" />
 {% endblock %}
 
 {% block menuright %}
@@ -15,10 +16,8 @@
 {% block content %}
 
 <ul class="pet-container">
-  <li class="pet summary">
+  <li id="pet-template" class="pet summary" style="display: none;">
     <div class="pet-images">
-      <img src="/images/promoted1.jpg" />
-      <!-- <img src="/images/promoted2.jpg" /> -->
     </div>
     <div class="pet-name">
       Lucy
