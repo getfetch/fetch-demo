@@ -14,12 +14,12 @@ function pull(zipcode, callback) {
   var images = [];
 
   var url = 'http://api.petfinder.com/pet.find?' + query + '&' + signature;
-  var get = http.get(url, function(res) {
-    res.setEncoding('utf8');
-    res.on('data', function(chunk) {
+  var get = http.get(url, function(response) {
+    response.setEncoding('utf8');
+    response.on('data', function(chunk) {
       returnData += chunk;
     });
-    res.on('end', function() {
+    response.on('end', function() {
       callback(returnData);
     });
   }).on('error', function(e) {
