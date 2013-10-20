@@ -81,7 +81,7 @@ app.get('/admin', requireLogin, function(request, response) {
 });
 
 app.get('/aggregate', requireLogin, function(request, response) {
-  var dogs = aggregate.pull(ADMIN_ZIPCODE, function(content) {
+  aggregate.request(ADMIN_ZIPCODE, function(content) {
     response.setHeader('Content-Type', 'application/json');
     response.send(content);
   });
