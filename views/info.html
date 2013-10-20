@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Info: {{ id }}{% endblock %}
+
+{% block class %}info{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block menuleft %}
+  <a id="back-link" class="btn btn-default" href="/browse">Back</a>
+{% endblock %}
+
+{% block menuright %}
+  <!-- <a id="filter&#45;link" class="btn btn&#45;default" href="#">Filter</a> -->
+{% endblock %}
+  
+{% block content %}
+
+Info for {{ id }}
+{% endblock %}
+
+{% block panel %}
+
+{% endblock %}

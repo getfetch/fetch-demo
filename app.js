@@ -51,6 +51,10 @@ app.get('/browse', function(request, response) {
   response.render('browse');
 });
 
+app.get('/info/:id', function(request, response) {
+  response.render('info', { id: request.params.id });
+});
+
 app.get('/login', function (request, response) {
   if (request.session.loggedIn) {
     response.redirect('/');
