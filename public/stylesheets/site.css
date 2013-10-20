@@ -97,6 +97,12 @@ footer {
   font-size: 20px;
 }
 
+.mmenu .logo {
+  width: 140px;
+  height: 50px;
+  background-size: 100%;
+}
+
 .mmenu a.btn-default {
   background-color: white;
 }
