@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block title %}Adoption Prefs{% endblock %}
+
+{% block class %}user{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+  
+{% block content %}
+
+<div class="user-container">
+  <div class="user-summary">
+    <div class="user-info">
+      <div class="well">
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="form-group">
+                <label for="timeframe" class="control-label">I want a dog...</label>
+                <select class="form-control" id="timeframe">
+                    <option></option>
+                    <option>Right Now!!!</option>
+                    <option>3 Months</option>
+                    <option>6 Months</option>
+                    <option>not right now</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="home_size" class="control-label">My home...</label>
+                <select class="form-control" id="home_size">
+                    <option></option>
+                    <option>is an apartment</option>
+                    <option>has no yard</option>
+                    <option>has a yard</option>
+                    <option>is a farm</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="living_situation" class="control-label">I live...</label>
+                <select class="form-control" id="living_situation">
+                    <option></option>
+                    <option>by myself</option>
+                    <option>with others</option>
+                    <option>with someone under 5</option>
+                    <option>with someone over 65</option>
+                </select>
+            </div>
+            <!-- Remove because of space
+            <div class="form-group">
+                <label for="dog_size" class="control-label">Size of Dog</label>
+                <select class="form-control" id="dog_size">
+                    <option>No Pref</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dog_gender" class="control-label">Gender of Dog</label>
+                <select class="form-control" id="dog_gender">
+                    <option>No Pref</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            -->
+            <div class="form-group">
+                <label for="energy_level" class="control-label">My energy level is...</label>
+                <select class="form-control" id="energy_level">
+                    <option></option>
+                    <option>couch potato (low energy)</option>
+                    <option>exercise maniac (high energy)</option>
+                    <option>weekend warrior (mixed)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="temperament" class="control-label">I'm best described as... </label>
+                <select class="form-control" id="temperament">
+                    <option></option>
+                    <option>playful/affectionate</option>
+                    <option>laidback</option>
+                    <option>strict</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="services" class="control-label">Services I'd be interested...</label>
+                <div class="grid">
+                    <div class="row">
+                        <div class="col-xs-9 col-md-6">
+                            <input type="checkbox" id="products" /> Products
+                        </div>
+                        <div class="col-xs-9 col-md-6">
+                            <input type="checkbox" id="insurance" /> Insurance
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9 col-md-6">
+                            <input type="checkbox" id="food" /> Food
+                        </div>
+                        <div class="col-xs-9 col-md-6">
+                            <input type="checkbox" id="healthcare" /> Healthcare
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+  </div>
+</div>
+
+{% endblock %}
