@@ -323,6 +323,10 @@ line-height: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+body.info .pet-image img {
+  width: 100%;
+}
+
 /* About */
 body.about .container p {
   padding: 0 .5em;
