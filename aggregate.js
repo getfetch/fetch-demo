@@ -10,17 +10,16 @@ function request(zipcode, callback) {
   var query = querystring.stringify({key: API_KEY, format: 'json', location: zipcode});
   var signature = crypto.createHash('md5').update(API_SECRET + query).digest('hex');
   
-  var returnData = '';
-  var images = [];
+  var content = '';
 
   var url = 'http://api.petfinder.com/pet.find?' + query + '&' + signature;
   var get = http.get(url, function(response) {
     response.setEncoding('utf8');
     response.on('data', function(chunk) {
-      returnData += chunk;
+      content += chunk;
     });
     response.on('end', function() {
-      callback(returnData);
+      callback(content);
     });
   }).on('error', function(e) {
     console.log('got error: ' + e.message);
