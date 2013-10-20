@@ -11,4 +11,6 @@ $(function() {
   $('#filter-link').click(function() {
     $('#filter-settings').trigger('open');
   });
+
+  $('#size').buttonset();
 });

@@ -1,12 +1,21 @@
 body { }
 
 .mmenu {
-  padding: .5em;
+  /* padding: .5em; */
+}
+
+.mmenu ul {
+  padding-top: 0;
 }
 
 .mmenu h1 {
+  margin-left: 1em;
+}
+
+.mmenu h1,
+.mmenu h1 a {
   color: rgba( 255, 255, 255, 0.6 );
-  font-size: 36px;
+  font-size: 20px;
 }
 
 #main-header {
@@ -53,7 +62,11 @@ body.index #main-header {
 .pet-container .pet-images {
 }
 
-#filter-settings {
-  margin-left: 65px;
+#filter-settings h1 {
+  padding-left: 65px;
+}
+#filter-settings .section {
+  padding-left: 1em;
+  padding-bottom: 1em;
 }
 

@@ -9,10 +9,13 @@
   {% block head %}
   <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/bower/jquery-mmenu/mmenu.css" />
-  <link rel="stylesheet" href="/stylesheets/site.css">
+  <link rel="stylesheet" href="/bower/jquery-ui/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="/bower/jquery-ui/themes/smoothness/jquery-ui.css" />
+  <link rel="stylesheet" href="/stylesheets/site.css" />
 
   <script src="/bower/jquery/jquery.min.js"></script>
   <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/bower/jquery-ui/ui/minified/jquery-ui.min.js"></script>
   <script src="/bower/jquery-mmenu/jquery.mmenu.min.js"></script>
   <script src="/javascript/menu.js"></script>
   {% endblock %}
@@ -30,13 +33,13 @@
 
   
   <nav id="main-menu">
-    <h1>Fetch!</h1>
+    <h1><a href="/">Fetch!</a></h1>
     <ul>
-      <li><a href="#">Browse</a></li>
-      <li><a href="#">My Favorites</a></li>
-      <li><a href="#">My Profile</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/browse">Browse</a></li>
+      <li><a href="/favorites">My Favorites</a></li>
+      <li><a href="/profile">My Profile</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
 
