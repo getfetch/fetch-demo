@@ -221,7 +221,7 @@ body.index #main-header {
 	background-position: right bottom;
 }
 .pet-favorite-link.favorited {
-  color: red;
+  color: #d85339;
 }
 .pet-share-link {
 	padding-left: 30px;
