@@ -206,8 +206,8 @@ var PetBrowser = (function() {
 
     $('.breeder-name').text(lookupShelter(dog.organization.id));
     $('.breeder-email').text(dog.organization.email);
-    $('.breeder-address').append($('<div>123 Avenue St.<br/>Pittsburgh, PA 15127</div>'));
-    $('.breeder-phone').text('412-555-9556');
+    $('.breeder-address').text(dog.organization.address);
+    $('.breeder-phone').text(dog.organization.phone);
   }
 
   result = {

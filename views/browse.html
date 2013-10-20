@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block menuright %}
-  <a id="filter-link" class="btn btn-default" href="#">Filter</a>
+  <a id="filter-link" class="btn btn-link" href="#">Filter</a>
 {% endblock %}
   
 {% block content %}
@@ -19,14 +19,18 @@
   <li id="pet-template" class="pet summary" style="display: none;">
     <div class="pet-images">
     </div>
-    <div class="pet-name">
-      Lucy
-    </div>
-    <div class="pet-actions">
-      <!-- TODO: Make Favorite a checkbox -->
-      <a href="#" class="pet-favorite-link">Favorite</a>
-      <a href="#" class="pet-info-link">Info</a>
-      <a href="#" class="pet-share-link">Share</a>
+    <h2 class="pet-name">Lucy</h2>
+    <div class="pet-actions row">
+    	<div class="col-xs-3">
+          <!-- TODO: Make Favorite a checkbox -->
+	      <a href="#" class="pet-favorite-link btn btn-link"><i class="icon-heart-filled"></i></a>
+	    </div>
+	    <div class="col-xs-6">
+	      <a href="#" class="pet-info-link">info</a>
+	     </div>
+	     <div class="col-xs-3">
+	      <a href="#" class="pet-share-link btn btn-link"><i class="icon-export"></i></a>
+	     </div>
     </div>
   </li>
 </ul>
