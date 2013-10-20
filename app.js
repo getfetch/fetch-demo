@@ -58,6 +58,10 @@ app.get('/info', function(request, response) {
   response.render('info');
 });
 
+app.get('/favorites/:id?', function(request, response) {
+  response.render('favorites', { id: request.params.id });
+});
+
 app.get('/organization/:id', function(request, response) {
   organization.load(request.params.id, function(model) { response.render('organization', model); });
 });

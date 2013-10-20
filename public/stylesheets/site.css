@@ -175,6 +175,46 @@ body.index #main-header {
   line-height: 1em;
 }
 
+/* Favorites */
+.favorite-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.favorite-item {
+  display: block;
+}
+.favorite-item
+.favorite-item:link,
+.favorite-item:hover {
+  text-decoration: none;
+}
+.favorite-image {
+  display: block;
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+.favorite-description {
+  display: block;
+  margin-left: 212px
+}
+.favorite-description h2 {
+  color: #555;
+}
+.favorite-description p {
+  color: #555;
+}
+.favorite-description p.available {
+  color: #2c6;
+  font-weight: bold;
+}
+.favorite-container .favorite-images img {
+  width: 100%;
+}
+.favorite-container .favorite-images {
+}
+
 /* Info */
 .breeder-map {
   width: 300px;
