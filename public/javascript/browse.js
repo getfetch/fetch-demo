@@ -174,8 +174,8 @@ var PetBrowser = (function() {
     $('.pet-description').append($(dog.description));
     $('.pet-image').append($('<img src="' + dog.photoUrls[0] + '" />'));
 
-    $('.breeder-name').text(lookupShelter(dog.shelter.id));
-    $('.breeder-email').text(dog.shelter.email);
+    $('.breeder-name').text(lookupShelter(dog.organization.id));
+    $('.breeder-email').text(dog.organization.email);
     $('.breeder-address').append($('<div>123 Avenue St.<br/>Pittsburgh, PA 15127</div>'));
     $('.breeder-phone').text('412-555-9556');
   }
