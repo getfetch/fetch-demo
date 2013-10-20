@@ -43,7 +43,7 @@ app.get('/*', function(request, response, next) {
   }
 });
 
-app.get('/', function (request, response) {
+app.get('/', function(request, response) {
   response.render('index', { /* template locals context */ });
 });
 
@@ -51,14 +51,14 @@ app.get('/browse', function(request, response) {
   response.render('browse');
 });
 
-app.get('/login', function (request, response) {
+app.get('/login', function(request, response) {
   if (request.session.loggedIn) {
     response.redirect('/');
   } else {
     response.render('login', {next: request.query.next});
   }
 })
-.post('/login', function (request, response) {
+.post('/login', function(request, response) {
   if (request.body.email !== ADMIN_EMAIL || request.body.password !== ADMIN_PASSWORD) {
     response.render('login', {
       email: request.body.email,
@@ -71,16 +71,16 @@ app.get('/login', function (request, response) {
   }
 });
 
-app.get('/logout', function (request, response) {
+app.get('/logout', function(request, response) {
   request.session.loggedIn = false;
   response.redirect('/');
 });
 
-app.get('/admin', requireLogin, function (request, response) {
+app.get('/admin', requireLogin, function(request, response) {
   response.render('admin');
 });
 
-app.get('/aggregate', requireLogin, function (request, response) {
+app.get('/aggregate', requireLogin, function(request, response) {
   var dogs = aggregate.pull(ADMIN_ZIPCODE, function(content) {
     response.setHeader('Content-Type', 'application/json');
     response.send(content);
