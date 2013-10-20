@@ -86,11 +86,9 @@ footer {
 	margin: 40px 0;
 	text-align: center;
 }
-
 .container {
 	padding: 0;
 }
-
 .mmenu {
 	/* padding: .5em; */
 }
@@ -123,7 +121,6 @@ float: left;
 #main-header-right-btn {
 	float: right;
 }
-
 #main-header-title {
 	font-size: 2em;
 	color: red;
@@ -138,10 +135,8 @@ float: left;
 body.index #main-header {
 	display: none;
 }
-
 .promoted {
 }
-
 .promoted img {
 	max-width: 500px;
 	width: 49%;
@@ -244,6 +239,18 @@ h2 {
 	width: 300px;
 	margin: auto;
 }
+
+/* About */
+body.about .container p {
+  padding: 0 .5em;
+  text-align: justify;
+}
+
+/* Contact */
+body.contact .container p {
+  padding: 0 .5em;
+}
+
 /* About */
 body.about .container p {
   padding: 0 .5em;
