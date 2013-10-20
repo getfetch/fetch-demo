@@ -307,6 +307,10 @@ line-height: 40px;
 .favorite-container .favorite-images {
 }
 
+.empty-favorites {
+  text-align: center;
+}
+
 /* Info */
 .breeder-map {
 	width: 300px;
