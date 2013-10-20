@@ -64,7 +64,8 @@
       "altered",
       "hasShots",
       "housebroken",
-      "noCats"
+      "noCats",
+      "verified"
     ]
   },
   {
@@ -97,7 +98,8 @@
       "altered",
       "hasShots",
       "housebroken",
-      "noCats"
+      "noCats",
+      "urgent"
     ]
   },
   {

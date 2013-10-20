@@ -337,6 +337,10 @@ body.about .container p {
   text-align: justify;
 }
 
+body.about img {
+  max-width: 100%;
+}
+
 /* Contact */
 body.contact .container p {
   padding: 0 .5em;
