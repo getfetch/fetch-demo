@@ -33,7 +33,6 @@
 </head>
 <body class="{% block class %}{% endblock %}">
 
-  
   <nav id="main-menu">
     <a href="/"><h1 class="logo">Fetch!</h1></a>
     <ul>
@@ -49,8 +48,8 @@
   {% block panel %}{% endblock %}
 
   <div class="container">
-  	<nav id="main-header" class="navbar navbar-default navbar-fixed-top" role="navigation">
-	  <div id="main-header-left-btn">
+    <nav id="main-header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div id="main-header-left-btn">
         {% block menuleft %}
           <a id="main-menu-link" class="btn btn-link" href="#"><i class="icon-menu-1"></i></a>
         {% endblock %}
@@ -60,7 +59,7 @@
         {% endblock %}
       </div>
       <h1 id="main-header-title">{% block title %}Fetch{% endblock %}</h1>
-	</nav>
+    </nav>
 
     {% block content %}{% endblock %}
     
