@@ -60,7 +60,7 @@ app.get('/info', function(request, response) {
 
 app.get('/organization/:id', function(request, response) {
   //console.log('request: %j', request);
-  organization.load(request.params.id, function(model){response.render('organization', model)});
+  organization.load(request.params.id, function(model) { response.render('organization', model); });
 });
 
 app.get('/login', function (request, response) {
