@@ -10,23 +10,28 @@
 {% endblock %}
 
 {% block content %}
-  <ul class="favorite-container">
-    <li id="favorite-template" class="favorite summary" data-info-url="#" style="display: none;">
+  <section class="favorite-container">
+    <article id="favorite-template" class="favorite" data-info-url="#" style="display: none;">
       <a class="favorite-item" href="#">
-        <img src="#" class="favorite-image"></img>
+      	<h2 class="favorite-name">Lucy</h2>
+        <div class="fav-image">
+        	<img src="#" class="favorite-image" />
+        </div>
         <div class="favorite-description">
-          <h2 class="favorite-name">Lucy</h2>
           <p class="favorite-status">
             Available
           </p>
           <p class="favorite-location">
             Pittsburgh, PA
           </p>
+          <a href="#" class="favorite-item btn btn-primary col-xs-12">View</a>
+
+          <a href="#" class="favorite-item btn btn-success col-xs-12">Reserve</a>
         </div>
         <div class="clearfix"></div>
       </a>
-    </li>
-  </ul>
+    </article>
+  </section>
 
   <div class="empty-favorites">
     <p>

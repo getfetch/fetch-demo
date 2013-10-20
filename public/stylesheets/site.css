@@ -269,7 +269,7 @@ body.browse .pet h2 {
 	font-size: 24px;
 	z-index: 999;
 }
-.info h2, .info h3 {
+.info h2, .info h3, .favorites h2, .favorites h3 {
 	margin: 0;
 	position: static;
 	color: #d85339;
@@ -315,19 +315,25 @@ line-height: 40px;
   margin: 0;
   padding: 0;
 }
+/*
 .favorite-item {
-  display: block;
+  display: inline-block;
 }
+*/
 .favorite-item
 .favorite-item:link,
 .favorite-item:hover {
   text-decoration: none;
 }
-.favorite-image {
+.fav-image {
   display: block;
   float: left;
   height: 200px;
   width: 200px;
+  overflow: hidden;
+}
+.fav-image img {
+  width: 100%;
 }
 .favorite-description {
   display: block;
@@ -342,6 +348,9 @@ line-height: 40px;
 .favorite-description p.available {
   color: #2c6;
   font-weight: bold;
+}
+.favorite-description a {
+	margin: 12px 0 0;
 }
 .favorite-container .favorite-images img {
   width: 100%;
@@ -361,6 +370,12 @@ line-height: 40px;
 }
 .info article {
 	margin: 12px;
+}
+article {
+	margin: 12px;
+	padding: 8px;
+	background-color: #fff;
+	border: 1px solid #ccc;
 }
 
 .info hr {
