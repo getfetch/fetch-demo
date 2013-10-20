@@ -6,8 +6,14 @@ var FavoriteBrowser = (function() {
     var breeds = [];
     var $template = $('#favorite-template');
 
-    $.each(dogs, function(i, dog) {
+    // Show favorites only
+    var favoriteDogIds = localStorageGetArray('favorites');
+    dogs = dogs.filter(function(dog) {
+      return favoriteDogIds.indexOf(dog.id.toString()) !== -1;
+    });
 
+    // Render each dog
+    $.each(dogs, function(i, dog) {
       if(displayId === dog.id) {
         dogToDisplay = dog;
       }
