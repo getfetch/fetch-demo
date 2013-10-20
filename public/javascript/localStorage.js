@@ -28,10 +28,11 @@ function localStoragePop(key, item) {
   var items = localStorageGetArray(key);
   var index = items.indexOf(item);
   if (index === -1) {
-    return;
+    return false;
   }
   items.pop(index);
   localStorageSetArray(items);
+  return true;
 }
 
 if (!window.localStorage) {
