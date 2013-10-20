@@ -320,3 +320,10 @@ body.about .container p {
 body.contact .container p {
   padding: 0 .5em;
 }
+
+/* Profile */
+body.user .btn {
+  display: block;
+  max-width: 6em;
+  margin: auto;
+}

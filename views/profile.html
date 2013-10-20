@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% block title %}Adoption Prefs{% endblock %}
+{% block title %}My Profile{% endblock %}
 
 {% block class %}user{% endblock %}
 
@@ -20,20 +20,20 @@
                 <label for="timeframe" class="control-label">I want a dog...</label>
                 <select class="form-control" id="timeframe">
                     <option></option>
-                    <option>Right Now!!!</option>
+                    <option>Immediately</option>
                     <option>3 Months</option>
                     <option>6 Months</option>
                     <option>not right now</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="home_size" class="control-label">My home...</label>
+                <label for="home_size" class="control-label">My home is...</label>
                 <select class="form-control" id="home_size">
                     <option></option>
-                    <option>is an apartment</option>
-                    <option>has no yard</option>
-                    <option>has a yard</option>
-                    <option>is a farm</option>
+                    <option>an apartment</option>
+                    <option>a house without a yard</option>
+                    <option>a house with a yard</option>
+                    <option>a farm</option>
                 </select>
             </div>
             <div class="form-group">
@@ -79,12 +79,12 @@
                 <select class="form-control" id="temperament">
                     <option></option>
                     <option>playful/affectionate</option>
-                    <option>laidback</option>
+                    <option>laid-back</option>
                     <option>strict</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="services" class="control-label">Services I'd be interested...</label>
+                <label for="services" class="control-label">Services I'd be interested in...</label>
                 <div class="grid">
                     <div class="row">
                         <div class="col-xs-9 col-md-6">
@@ -105,6 +105,8 @@
                 </div>
             </div>
           </fieldset>
+
+          <a href="#" class="btn btn-primary">Save</a>
         </form>
       </div>
   </div>
