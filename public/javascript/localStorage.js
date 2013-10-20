@@ -19,19 +19,19 @@ function localStorageSetArray(key, items) {
 function localStoragePush(key, item) {
   // TODO: Escape the item string if it contains ','
   var items = localStorageGetArray(key);
-  items.push(item);
-  localStorageSetArray(items);
+  items.push(item.toString());
+  localStorageSetArray(key, items);
 }
 
 // Pops an item to an array stored in localStorage
 function localStoragePop(key, item) {
   var items = localStorageGetArray(key);
-  var index = items.indexOf(item);
+  var index = items.indexOf(item.toString());
   if (index === -1) {
     return false;
   }
   items.pop(index);
-  localStorageSetArray(items);
+  localStorageSetArray(key, items);
   return true;
 }
 
