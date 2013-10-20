@@ -28,6 +28,14 @@ h1.logo {
 	text-indent: -9999px;
 	display: block;
 }
+#featured {
+	margin: 0 auto;
+	width: 320px;
+	height: 200px;
+	background: url('../images/featured.png') top center no-repeat;
+	text-indent: -9999px;
+	display: block;
+}
 /* for high-resolution devices */
 @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
 only screen and (-moz-min-device-pixel-ratio: 1.5),
@@ -38,16 +46,33 @@ only screen and (min-device-pixel-ratio: 1.5) {
 		width: 464px;
 		height: 171px;
 		background: url('../images/fetch_logo_2x.png') top center no-repeat;
-		background-size: ;
+		background-size: 232px 86px;
+		text-indent: -9999px;
+		display: block;
+	}
+	#featured {
+		margin: 0 auto;
+		width: 320px;
+		height: 200px;
+		background: url('../images/featured_2x.png') top center no-repeat;
+		background-size: 320px 200px;
 		text-indent: -9999px;
 		display: block;
 	}
 }
 .pitch {
-	
+	margin: 20px auto;
+	width: 70%;
+	font-size: 16px;
+	text-align: center;
+	line-height: 24px;
 }
 a.button {
 	font-family: "Bree", helvetica, arial, sans-serif;
+}
+footer {
+	margin: 40px 0;
+	text-align: center;
 }
 
 .container {

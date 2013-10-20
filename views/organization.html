@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block title %}Organization{% endblock %}
+
+{% block class %}organization{% endblock %}
+
+{% block head %}
+  {% parent %}
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key={{ mapKey }}&sensor=true">
+  </script>
+{% endblock %}
+  
+{% block content %}
+
+<div class="org-container">
+  <div class="org-summary">
+    <div class="org-info">
+      <div class="org-name">
+        {{ name }}
+      </div>
+      <div class="org-type">
+        {{ type }}
+      </div>
+      <div class="org-yrs-in-biz">
+        {{ years_in_biz }}
+      </div>
+      {% if frequency != '' %}
+      <div class="frequency">
+        {{ frequency }}
+      </div>
+      {% endif %}
+      <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Contact Info</div>
+        </div>
+        <div class="panel-body">
+            <div class="org-phone">
+            {{ phone }}
+            </div>
+            <div class="org-email">
+                <a href="mailto:{{ email }}?subject=Adoption Info Request">{{ email }}</a>
+            </div>
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Address</div>
+        </div>
+        <div class="panel-body">
+            <div id="map" style="width: 300px; height: 200px;"></div>
+            <div class="org-location">
+                {{ location }}
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $('document').ready(function(){
+        var map;
+        var center;
+        
+        function initialize()
+        {
+            var mapProp = {
+              center: center,
+              zoom:8,
+              mapTypeId:google.maps.MapTypeId.ROADMAP
+              };
+            var map=new google.maps.Map(document.getElementById("map"),mapProp);
+            
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map,
+                title: "{{ name }}"
+            });
+        }
+
+        $.ajax({
+            url: "http://maps.googleapis.com/maps/api/geocode/json?address={{ location }}&sensor=true"
+        }).done(function(response){
+            center = new google.maps.LatLng(response.results[0].geometry.location.lat, response.results[0].geometry.location.lng);
+            google.maps.event.addDomListener(window, 'load', initialize);
+       });
+    });    
+</script>
+
+{% endblock %}
