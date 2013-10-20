@@ -235,7 +235,7 @@ body.index #main-header {
 	background-repeat: no-repeat;
 	text-indent: 30px;
 }
-.pet-description .urgent .pet-name, .pet-description .urgverifiedent .pet-name {
+.urgent span.pet-name, .verified span.pet-name {
 	background-image: none;
 }
 .pet-images::before, .pet-image::before {
