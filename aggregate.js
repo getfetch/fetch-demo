@@ -57,6 +57,7 @@ function transform(json) {
       mix: pet.mix['$t'] === 'yes',
       shelter: {
         id: pet.shelterId['$t'],
+        name: '',  // TODO: Request for name
         email: pet.contact.email['$t'],
       },
       options: toArray(pet.options.option)
