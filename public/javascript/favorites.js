@@ -27,7 +27,7 @@ var FavoriteBrowser = (function() {
       $dog.find('.favorite-name').text(dog.name);
       $dog.find('.favorite-status').text('Available').addClass('available');
       $dog.find('.favorite-location').text(dog.organization.address);
-      $dog.find('.favorite-item').attr('href', '/favorite/' + dog.id);
+      $dog.find('.favorite-item').attr('href', '/favorites/' + dog.id);
 
       // TODO: Use a 'no-photo' image when empty
       var url = dog.photoUrls.length > 0 ? dog.photoUrls[0] : '#';
@@ -99,7 +99,7 @@ var FavoriteBrowser = (function() {
     document.title = pageCache.title;
     document.documentElement.replaceChild(pageCache.body, document.body);
 
-    window.history.replaceState({}, '', '/favorite');
+    window.history.replaceState({}, '', '/favorites');
 
     PageSetup();
 
@@ -119,7 +119,7 @@ var FavoriteBrowser = (function() {
     document.title = dog.name;
     document.documentElement.replaceChild($(infoDoc.body).clone()[0], document.body);
 
-    window.history.pushState({}, '', '/favorite/' + dog.id);
+    window.history.pushState({}, '', '/favorites/' + dog.id);
     console.log(infoDoc);
 
     window.scrollTo(0, 0);
