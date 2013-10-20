@@ -106,8 +106,6 @@ var PetBrowser = (function() {
     filter.size = $('input:radio[name="size"]:checked').val();
     filter.breed = $('#breed').val();
 
-    console.log(filter);
-
     filterDogs();
   }
 
@@ -149,7 +147,6 @@ var PetBrowser = (function() {
   $.ajax('/info')
     .done(function(data) {
       infoDoc = createDocument(data);
-      console.log(infoDoc);
     });
 
   function cachePage() {
@@ -194,14 +191,12 @@ var PetBrowser = (function() {
     document.documentElement.replaceChild($(infoDoc.body).clone()[0], document.body);
 
     window.history.pushState({}, '', '/browse/' + dog.id);
-    console.log(infoDoc);
 
     window.scrollTo(0, 0);
 
     PageSetup();
 
     $('#back-link').click(function() {
-      console.log('back');
       restoreCachedPage();
       return false;
     });
