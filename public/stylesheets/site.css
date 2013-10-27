@@ -147,6 +147,8 @@ footer {
 #main-header {
 	padding: .5em;
 	opacity: .97;
+  max-width: 568px;
+  margin: auto;
 }
 #main-header-left-btn {
 float: left;
