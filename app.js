@@ -50,6 +50,10 @@ app.get('/', function(request, response) {
   response.render('index');
 });
 
+app.get('/reservation', function(request, response) {
+  response.render('reservation', { /* template locals context */ });
+});
+
 app.get('/notifications', function(request, response) {
   response.render('notifications', { /* template locals context */ });
 });
