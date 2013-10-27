@@ -194,10 +194,11 @@ body.index #main-header {
 }
 .summary {
 	margin: 0 0 12px;
-	height: 240px;
+	/* height: 240px; */
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 }
+
 .pet-images, .pet-image, .team {
 	width: 100%;
 	height: 180px;
@@ -213,6 +214,23 @@ body.index #main-header {
 	margin: 0 0 20px;
 	height: 260px;
 }
+
+@media only screen and (min-width: 321px) {
+  .pet-images, .pet-image, .team {
+    height: 250px;
+  }
+}
+@media only screen and (min-width: 400px) {
+  .pet-images, .pet-image, .team {
+    height: 325px;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .pet-images, .pet-image, .team {
+    height: 400px;
+  }
+}
+
 /*
 .urgent {
 	background-image: url('../images/urgent.png');
