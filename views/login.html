@@ -7,35 +7,10 @@
 {% endblock %}
 
 {% block content %}
-    <article>
-      <p>
-        {% if error %}
-          <div class="alert alert-dismissable alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            {{ error }}
-          </div>
-        {% endif %}
-
-        <form action="/login" method="POST">
-          <input type="hidden" name="next" value="{{ next }}" />
-          <div class="form-group">
-              <button class="btn btn-primary col-xs-12">Connect with Facebook</button>
-          </div>
-          <div class="form-group">
-              <div class="col-xs-12" style="text-align:center">
-                  -- Or --
-              </div>
-          </div>
-          <div class="form-group">
-            <input type="text" name="email" class="form-control" value="{{ email }}" placeholder="Email" autofocus />
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" class="form-control" placeholder="Password" />
-          </div>
-          <div class="form-group">
-            <button class="btn btn-success col-xs-12" type="submit">Sign In</button>
-          </div>
-        </form>
-      </p>
-    </article>
+<article>
+  <h2>Coming soon!</h2>
+  <p>
+    Sign in with facebook or your email address to customize your profile.
+  </p>
+</article>
 {% endblock %}
